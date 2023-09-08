@@ -75,3 +75,7 @@ val n_equals_one_returns_head = get_nth (string_list, 1) = "hi"
 val for_any_n_value_return_n_position = get_nth (string_list, 3) = "how"
 
 val n_equals_length_of_list_returns_last_string = get_nth (string_list, 5) = "you"
+
+(**** date_to_string ****)
+
+val converts_date_to_string = date_to_string((2023, 9, 8)) = "September 8, 2023"
