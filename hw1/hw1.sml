@@ -14,3 +14,11 @@ fun number_in_month (date_list : (int * int * int) list, in_month : int) =
 	in
 	   add_to_count + number_in_month(tl(date_list), in_month) 
 	end
+
+fun number_in_months (date_list : (int * int * int) list, month_list : int list) =
+    if
+	null(month_list)
+    then
+	0
+    else
+	number_in_month(date_list, hd(month_list)) + number_in_months(date_list, tl(month_list))

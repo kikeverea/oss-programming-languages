@@ -32,3 +32,15 @@ val month_n_times_in_dates_list_returns_n = number_in_month(dates_list, 6) = 4
 val month_in_head_of_dates_list_returns_n = number_in_month(dates_list, 5) = 2
 
 val month_in_tail_of_dates_list_returns_n = number_in_month(dates_list, 4) = 1
+
+(***** number_in_months *****)
+
+val empty_lists_returns_0 = number_in_months([], []) = 0
+										 
+val empty_month_list_returns_0 = number_in_months(dates_list, [1, 3]) = 0
+
+val empty_dates_list_returns_0 = number_in_months([], [1, 2, 3]) = 0
+
+val no_months_in_list_returns_0 = number_in_months(dates_list, []) = 0
+
+val m_months_n_times_in_dates_returns_sum_of_n_of_m = number_in_months(dates_list, [5, 6, 4, 11]) = 8
