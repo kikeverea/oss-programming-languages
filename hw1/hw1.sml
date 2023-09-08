@@ -97,3 +97,15 @@ fun month_range (day1 : int, day2 : int) =
 		if to < from then [] else from::generate_list(from + 1, to)
 	in generate_list(what_month(day1), what_month(day2))
     end
+
+fun oldest (date_list : (int * int * int) list) =
+    if null date_list
+    then NONE
+    else
+       let
+	   val older = hd(date_list)
+	   val compare = oldest(tl(date_list))
+       in if not(isSome compare) orelse is_older(valOf compare, older)
+	  then SOME older
+	  else compare
+       end

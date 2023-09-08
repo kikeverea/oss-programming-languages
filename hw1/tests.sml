@@ -156,3 +156,15 @@ val day1_greater_than_day2_returns_empty = month_range(2, 1) = []
 val range_in_one_month_return_list_with_that_month = month_range(1, 31) = [1]
 
 val range_in_several_months_returns_list_with_months = month_range(1, 121) = [1, 2, 3, 4, 5]
+
+(**** oldest ****)
+
+val empty_list_return_NONE = not(isSome(oldest([])))
+
+val one_value_list_returns_that_value = valOf(oldest([(1,1,1)])) = (1,1,1)
+
+val oldest_is_head_return_head = valOf(oldest([(4,4,4), (3,2,1), (1,2,3)])) = (4,4,4)
+
+val oldest_is_any_return_older = valOf(oldest([(1,2,3), (5,5,5), (4,4,4)])) = (5,5,5)
+
+val oldest_is_last_return_last = valOf(oldest([(1,2,3), (3,2,1), (4,4,4)])) = (4,4,4)
