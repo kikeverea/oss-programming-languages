@@ -11,6 +11,28 @@ val dates_list = [(2023, 5, 6),
 
 val string_list = ["hi", "there", "how", "are", "you"]
 
+fun generate_days_of_year () =
+    let
+	fun generate_days (day : int) =
+	    if day > 365
+	    then []
+	    else (day)::generate_days(day + 1)
+    in
+	generate_days(1)
+    end
+
+fun get_last(l : 'a list) =
+    if
+	null(tl(l))
+    then
+	hd(l)
+    else
+	get_last(tl(l))
+	
+
+val days_of_year = generate_days_of_year()
+
+    
 (***** is_older *****)
 
 val date_2023_9_7_isOlderThan_2023_9_6 = is_older((2023,9,6), (2023,9,7))
@@ -79,3 +101,11 @@ val n_equals_length_of_list_returns_last_string = get_nth (string_list, 5) = "yo
 (**** date_to_string ****)
 
 val converts_date_to_string = date_to_string((2023, 9, 8)) = "September 8, 2023"
+
+(**** number_before_reaching_sum ****)
+
+val number_is_head_return_0 = number_before_reaching_sum(1, [25, 1, 2]) = 0
+
+val number_is_second_return_1 = number_before_reaching_sum(5, [2, 3, 4, 5]) = 1
+
+val number_is_last_return_list_length_less_1 = number_before_reaching_sum(16, [2, 5, 6, 3]) = 3

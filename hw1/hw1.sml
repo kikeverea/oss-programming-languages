@@ -68,4 +68,22 @@ fun date_to_string(date : (int * int * int)) =
     in
 	month ^ " " ^ Int.toString((#3 date)) ^ ", " ^ Int.toString((#1 date))
     end
+
+fun number_before_reaching_sum (sum : int, int_list : int list) =
+    let
+	fun number_tracker (sum : int, pos : int, int_list : int list) =
+	    let
+		val sum = sum - hd(int_list)
+	    in
+		if
+		    sum <= 0
+		then
+		    pos - 1
+		else
+		    number_tracker(sum, pos + 1, tl(int_list))
+	    end
+    in
+	number_tracker(sum, 1, int_list)
+    end
+	
 	
