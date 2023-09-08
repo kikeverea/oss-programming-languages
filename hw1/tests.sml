@@ -9,6 +9,8 @@ val dates_list = [(2023, 5, 6),
 		  (2002, 6, 15),
 		  (1999, 4, 30)]
 
+val string_list = ["hi", "there", "how", "are", "you"]
+
 (***** is_older *****)
 
 val date_2023_9_7_isOlderThan_2023_9_6 = is_older((2023,9,6), (2023,9,7))
@@ -63,3 +65,13 @@ val empty_lists_returns_empty_list = dates_in_months([], []) = []
 val empty_month_list_returns_empty_list = dates_in_months(dates_list, []) = []
 
 val empty_dates_list_returns_empty_list = dates_in_months([], [1, 2, 3]) = []
+
+(**** get_nth ****)
+
+val empty_list_returns_empty_list = get_nth([], 5) = ""
+
+val n_equals_one_returns_head = get_nth (string_list, 1) = "hi"
+
+val for_any_n_value_return_n_position = get_nth (string_list, 3) = "how"
+
+val n_equals_length_of_list_returns_last_string = get_nth (string_list, 5) = "you"
