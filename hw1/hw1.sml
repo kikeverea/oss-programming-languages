@@ -4,11 +4,7 @@ fun is_older(date1 : (int*int*int), date2 : (int*int*int)) =
     (#1 date2) = (#1 date1) andalso (#2 date2) = (#2 date1) andalso (#3 date2) > (#3 date1)
 
 fun number_in_month (date_list : (int * int * int) list, in_month : int) =
-    if
-	null(date_list)
-    then
-	0
-    else
+    if null(date_list) then 0 else
 	let
 	    val add_to_count = if (#2 (hd date_list)) = in_month then 1 else 0
 	in
@@ -71,7 +67,7 @@ fun date_to_string(date : (int * int * int)) =
 
 fun number_before_reaching_sum (sum : int, int_list : int list) =
     let
-	fun number_tracker (sum : int, pos : int, int_list : int list) =
+	fun pos_tracker (sum : int, pos : int, int_list : int list) =
 	    let
 		val sum = sum - hd(int_list)
 	    in
@@ -80,10 +76,16 @@ fun number_before_reaching_sum (sum : int, int_list : int list) =
 		then
 		    pos - 1
 		else
-		    number_tracker(sum, pos + 1, tl(int_list))
+		    pos_tracker(sum, pos + 1, tl(int_list))
 	    end
     in
-	number_tracker(sum, 1, int_list)
+	pos_tracker(sum, 1, int_list)
     end
-	
-	
+
+
+fun what_month(day_of_year : int) =
+    let
+	val days_of_months = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+    in
+	1 + number_before_reaching_sum(day_of_year, days_of_months)
+    end
