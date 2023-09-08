@@ -74,9 +74,9 @@ fun oldest (date_list : (int * int * int) list) =
     then NONE
     else
        let
-	   val older = hd(date_list)
-	   val compare = oldest(tl(date_list))
-       in if not(isSome compare) orelse is_older(valOf compare, older)
-	  then SOME older
-	  else compare
+	   val compare = hd(date_list)
+	   val older = oldest(tl(date_list))
+       in if isSome older andalso is_older(valOf older, compare)
+	  then older
+	  else SOME compare
        end
