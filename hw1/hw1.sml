@@ -67,12 +67,7 @@ fun what_month (day_of_year : int) =
 fun month_range (day1 : int, day2 : int) =
     if day1 > day2
     then []
-    else
-	let
-	    fun generate_list (from : int, to : int) =
-		if to < from then [] else from::generate_list(from + 1, to)
-	in generate_list(what_month(day1), what_month(day2))
-    end
+    else what_month(day1)::month_range(day1 + 1, day2)
 
 fun oldest (date_list : (int * int * int) list) =
     if null date_list
