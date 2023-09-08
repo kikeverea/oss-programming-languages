@@ -88,4 +88,12 @@ fun what_month(day_of_year : int) =
 	val days_of_months = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
     in
 	1 + number_before_reaching_sum(day_of_year, days_of_months)
+fun month_range (day1 : int, day2 : int) =
+    if day1 > day2
+    then []
+    else
+	let
+	    fun generate_list (from : int, to : int) =
+		if to < from then [] else from::generate_list(from + 1, to)
+	in generate_list(what_month(day1), what_month(day2))
     end

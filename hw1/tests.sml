@@ -149,4 +149,10 @@ val nov_edges_return_11 = what_month(nov_start) = 11 andalso what_month(dec_star
 
 val dec_edges_return_12 = what_month(dec_start) = 12 andalso what_month(365) =12
 
-											   
+(**** month_range ****)
+
+val day1_greater_than_day2_returns_empty = month_range(2, 1) = []
+
+val range_in_one_month_return_list_with_that_month = month_range(1, 31) = [1]
+
+val range_in_several_months_returns_list_with_months = month_range(1, 121) = [1, 2, 3, 4, 5]
