@@ -48,13 +48,13 @@ val days_of_year = generate_days_of_year()
     
 (***** is_older *****)
 
-val date_2023_9_7_isOlderThan_2023_9_6 = is_older((2023,9,6), (2023,9,7))
+val date_2023_9_6_isOlderThan_2023_9_7 = is_older((2023,9,6), (2023,9,7))
 
-val date_2023_9_1_isOlderThan_2023_8_31 = is_older((2023,8,31), (2023,9,1))
+val date_2023_8_31_isOlderThan_2023_9_1 = is_older((2023,8,31), (2023,9,1))
 
-val date_2023_9_6_isNotOlderThan_2023_9_7 = not(is_older((2023,9,7), (2023,9,6)))
+val date_2023_9_7_isNotOlderThan_2023_9_6 = not(is_older((2023,9,7), (2023,9,6)))
 
-val date_2023_8_31_isNotOlderThan_2023_9_1 = not(is_older((2023,9,1), (2023,8,31)))
+val date_2023_9_1_isNotOlderThan_2023_8_31 = not(is_older((2023,9,1), (2023,8,31)))
 
 (***** number_in_month *****)
 
