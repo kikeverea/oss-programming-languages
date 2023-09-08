@@ -55,3 +55,11 @@ val n_dates_have_month_return_list_of_such_dates = dates_in_month(dates_list, 6)
 										    (2023, 6, 8),
 										    (1988, 6, 22),
 										    (2002, 6, 15)]
+
+(***** dates_in_months *****)
+
+val empty_lists_returns_empty_list = dates_in_months([], []) = []
+
+val empty_month_list_returns_empty_list = dates_in_months(dates_list, []) = []
+
+val empty_dates_list_returns_empty_list = dates_in_months([], [1, 2, 3]) = []
