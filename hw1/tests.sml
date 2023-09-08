@@ -44,3 +44,14 @@ val empty_dates_list_returns_0 = number_in_months([], [1, 2, 3]) = 0
 val no_months_in_list_returns_0 = number_in_months(dates_list, []) = 0
 
 val m_months_n_times_in_dates_returns_sum_of_n_of_m = number_in_months(dates_list, [5, 6, 4, 11]) = 8
+
+(***** dates_in_month *****)
+
+val empty_date_list_resturns_empty_list = dates_in_month([], 5) = []
+
+val no_dates_with_month_returns_empty_list = dates_in_month(dates_list, 3) = []
+
+val n_dates_have_month_return_list_of_such_dates = dates_in_month(dates_list, 6) = [(2023, 6, 7),
+										    (2023, 6, 8),
+										    (1988, 6, 22),
+										    (2002, 6, 15)]

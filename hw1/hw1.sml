@@ -22,3 +22,21 @@ fun number_in_months (date_list : (int * int * int) list, month_list : int list)
 	0
     else
 	number_in_month(date_list, hd(month_list)) + number_in_months(date_list, tl(month_list))
+
+fun dates_in_month (date_list : (int * int * int) list, of_month: int) =
+    if
+	null(date_list)
+    then
+	date_list
+    else
+	let
+	    val current_date = hd(date_list)
+	    val dates = dates_in_month(tl(date_list), of_month)
+	in
+	    if
+		(#2 current_date) = of_month
+	    then
+		current_date::dates
+	    else
+		dates
+	end
