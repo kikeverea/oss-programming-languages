@@ -48,13 +48,29 @@ val days_of_year = generate_days_of_year()
     
 (***** is_older *****)
 
-val date_2023_9_6_isOlderThan_2023_9_7 = is_older((2023,9,6), (2023,9,7))
+val year_older_rest_is_not = is_older((2, 2, 2), (3, 1, 1)) = true
 
-val date_2023_8_31_isOlderThan_2023_9_1 = is_older((2023,8,31), (2023,9,1))
+val year_not_older_rest_is = is_older((3,1,1), (2,2,2)) = false
 
-val date_2023_9_7_isNotOlderThan_2023_9_6 = not(is_older((2023,9,7), (2023,9,6)))
+val year_older_month_older_day_is_not = is_older((2,2,2), (3, 3, 1)) = true
 
-val date_2023_9_1_isNotOlderThan_2023_8_31 = not(is_older((2023,9,1), (2023,8,31)))
+val year_not_older_month_not_older_day_is = is_older((3,3,1), (2,2,2)) = false
+
+val all_digits_are_older = is_older((2,2,2), (3,3,3)) = true
+
+val no_digits_are_older = is_older((3,3,3), (2,2,2)) = false
+
+val same_year_month_older_day_not_older = is_older((2,2,2), (2,3,1)) = true
+
+val same_year_month_not_older_day_older = is_older((2,3,1), (2,2,2)) = false
+
+val same_year_rest_older = is_older((2,2,2), (2,3,3)) = true
+
+val same_year_rest_not_older = is_older((2,3,3), (2,2,2)) = false
+
+val same_year_and_month_day_older = is_older((2,2,2), (2,2,3)) = true
+
+val same_year_and_month_day_not_older = is_older((2,2,2), (2,2,1)) = false
 
 (***** number_in_month *****)
 
