@@ -90,11 +90,11 @@ val month_in_tail_of_dates_list_returns_n = number_in_month(dates_list, 4) = 1
 
 val empty_lists_returns_0 = number_in_months([], []) = 0
 										 
-val empty_month_list_returns_0 = number_in_months(dates_list, [1, 3]) = 0
+val empty_month_list_returns_0 = number_in_months(dates_list, []) = 0
 
 val empty_dates_list_returns_0 = number_in_months([], [1, 2, 3]) = 0
 
-val no_months_in_list_returns_0 = number_in_months(dates_list, []) = 0
+val no_months_in_list_returns_0 = number_in_months(dates_list, [1, 3]) = 0
 
 val m_months_n_times_in_dates_returns_sum_of_n_of_m = number_in_months(dates_list, [5, 6, 4, 11]) = 8
 
@@ -184,3 +184,21 @@ val oldest_is_head_return_head = oldest([(1,2,3), (3,2,1), (4,4,4)]) = SOME (1,2
 val oldest_is_any_return_older = oldest([(4,4,4), (1,2,3), (5,5,5)]) = SOME (1,2,3)
 
 val oldest_is_last_return_last = oldest([(5,5,5), (3,2,1), (1,2,3)]) = SOME (1,2,3)
+
+(**** number_in_months_challenge ****)
+
+val num_in_months = number_in_months(dates_list, [5, 6, 4, 11])
+
+val num_in_months_wo_duplicated = number_in_months_challenge(dates_list, [5, 6, 4, 11, 6, 11, 4, 5, 5, 5, 6, 4])
+
+val challenge_1_test = num_in_months = num_in_months_wo_duplicated
+
+(**** dates_in_months_challenge ****)
+
+val in_months = dates_in_months(dates_list, [5, 6, 4, 11])
+
+val in_months_wo_duplicated = dates_in_months_challenge(dates_list, [5, 6, 4, 11, 6, 11, 4, 5, 5, 5, 6, 4, 11])
+
+val challenge_2_test = in_months = in_months_wo_duplicated
+
+									    

@@ -80,3 +80,31 @@ fun oldest (date_list : (int * int * int) list) =
 	  then older
 	  else SOME compare
        end
+
+fun remove_duplicates (a_list : int list) =
+    let
+	fun is_in_list(value : int, in_list : int list) =
+	    if null(in_list)
+	    then false
+	    else if hd(in_list) = value
+	    then true
+	    else is_in_list(value, tl(in_list))
+    in
+	if null a_list
+	then []
+	else
+	    let
+		val new_list = remove_duplicates(tl(a_list))
+		val value = hd(a_list)
+	    in
+		if is_in_list(value, new_list)
+		then new_list
+		else value::new_list
+	    end
+    end
+	
+fun number_in_months_challenge (dates : (int * int * int) list, months : int list) =
+    number_in_months(dates, remove_duplicates(months))
+
+fun dates_in_months_challenge (dates : (int * int * int) list, months : int list) =
+    dates_in_months(dates, remove_duplicates(months))
