@@ -1,7 +1,13 @@
 fun is_older(date1 : (int*int*int), date2 : (int*int*int)) =
-    (#1 date1) < (#1 date2) orelse
-    (#1 date1) = (#1 date2) andalso (#2 date1) < ( #2 date2) orelse
-    (#2 date2) = (#2 date1) andalso (#3 date1) < (#3 date2)
+    if (#1 date1) > (#1 date2)
+    then false
+    else if (#1 date1) = (#1 date2)
+    then if (#2 date1) > (#2 date2)
+	 then false
+	 else if (#2 date1) = (#2 date2)
+	 then (#3 date1) < (#3 date2)
+	 else true
+    else true
 
 fun number_in_month (date_list : (int * int * int) list, in_month : int) =
     if null(date_list)
