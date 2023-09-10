@@ -108,3 +108,33 @@ fun number_in_months_challenge (dates : (int * int * int) list, months : int lis
 
 fun dates_in_months_challenge (dates : (int * int * int) list, months : int list) =
     dates_in_months(dates, remove_duplicates(months))
+
+fun reasonable_date (date : (int * int * int)) =
+    let
+	val days_of_months = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+	val year = #1 date
+	val month = #2 date
+	val day = #3 date
+
+	fun within_limits (value : int, from : int, to : int) =
+	    value >= from andalso value <= to
+
+	fun is_leap_year (year : int) =
+	    (year mod 400 = 0) orelse (year mod 4 = 0 andalso year mod 100 <> 0)
+
+	fun get_month_days (days : int list, month : int) =
+	    if month = 1
+	    then hd(days)
+	    else get_month_days(tl(days), month - 1)
+    in
+	if year > 0
+	   andalso within_limits(month, 1, 12)
+	   andalso within_limits(day, 1, 31)
+	then
+	    if month = 2
+	    then if is_leap_year(year)
+		 then within_limits(day, 1, 29)
+		 else within_limits(day, 1, 28)
+	    else day <= get_month_days(days_of_months, month)
+	else false
+    end
