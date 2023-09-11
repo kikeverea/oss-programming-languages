@@ -1,13 +1,16 @@
-fun is_older(date1 : (int*int*int), date2 : (int*int*int)) =
-    if (#1 date1) > (#1 date2)
-    then false
-    else if (#1 date1) = (#1 date2)
-    then if (#2 date1) > (#2 date2)
-	 then false
-	 else if (#2 date1) = (#2 date2)
-	 then (#3 date1) < (#3 date2)
-	 else true
-    else true
+fun is_older (date1 : (int*int*int), date2 : (int*int*int)) =
+    let
+	val year1 = #1 date1
+	val year2 = #1 date2
+	val month1 = #2 date1
+	val month2 = #2 date2
+	val day1 = #3 date1
+	val day2 = #3 date2
+    in
+	year1 < year2 orelse
+	year1 = year2 andalso month1 < month2 orelse
+	year1 = year2 andalso month1 = month2 andalso day1 < day2
+    end
 
 fun number_in_month (date_list : (int * int * int) list, in_month : int) =
     if null(date_list)
@@ -25,14 +28,9 @@ fun number_in_months (date_list : (int * int * int) list, month_list : int list)
 fun dates_in_month (date_list : (int * int * int) list, of_month: int) =
     if null(date_list)
     then date_list
-    else
-	let
-	    val current_date = hd(date_list)
-	    val dates = dates_in_month(tl(date_list), of_month)
-	in if (#2 current_date) = of_month
-	   then current_date::dates
-	   else dates
-	end
+    else if #2 (hd(date_list)) = of_month
+    then hd(date_list)::dates_in_month(tl(date_list), of_month)
+    else dates_in_month(tl(date_list), of_month)
 
 fun dates_in_months (date_list : (int * int * int) list, month_list : int list) =
     if null(month_list)
@@ -55,15 +53,9 @@ fun date_to_string (date : (int * int * int)) =
     end
 
 fun number_before_reaching_sum (sum : int, int_list : int list) =
-    let
-	fun pos_tracker (sum : int, pos : int, int_list : int list) =
-	    let val sum = sum - hd(int_list)
-	    in if sum <= 0
-	       then pos - 1
-	       else pos_tracker(sum, pos + 1, tl(int_list))
-	    end
-    in pos_tracker(sum, 1, int_list)
-    end
+    if sum <= hd int_list
+    then 0
+    else 1 + number_before_reaching_sum(sum - (hd int_list), tl int_list)
 
 fun what_month (day_of_year : int) =
     let val days_of_months = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
@@ -117,30 +109,24 @@ fun dates_in_months_challenge (dates : (int * int * int) list, months : int list
 
 fun reasonable_date (date : (int * int * int)) =
     let
-	val days_of_months = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
-	val year = #1 date
-	val month = #2 date
-	val day = #3 date
-
 	fun within_limits (value : int, from : int, to : int) =
 	    value >= from andalso value <= to
 
 	fun is_leap_year (year : int) =
 	    (year mod 400 = 0) orelse (year mod 4 = 0 andalso year mod 100 <> 0)
 
-	fun get_month_days (days : int list, month : int) =
+	val year = #1 date
+	val month = #2 date
+	val day = #3 date
+	val feb_len = if is_leap_year(year) then 29 else 28
+	val months_days = [31, feb_len, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+
+	fun get_days (days : int list, month : int) =
 	    if month = 1
 	    then hd(days)
-	    else get_month_days(tl(days), month - 1)
-    in
-	if year > 0
-	   andalso within_limits(month, 1, 12)
-	   andalso within_limits(day, 1, 31)
-	then
-	    if month = 2
-	    then if is_leap_year(year)
-		 then within_limits(day, 1, 29)
-		 else within_limits(day, 1, 28)
-	    else day <= get_month_days(days_of_months, month)
-	else false
+	    else get_days(tl(days), month - 1)
+
+    in year > 0
+       andalso within_limits(month, 1, 12)
+       andalso within_limits(day, 1, get_days(months_days, month))
     end
