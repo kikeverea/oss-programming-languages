@@ -9,6 +9,9 @@ val min_max5 = min_max([5,5,5])
 val cumsum1 = cumsum []
 val cumsum2 = cumsum [3]
 val cumsum3 = cumsum [1,4,20]
+val greeting1 = greeting(NONE)
+val greeting2 = greeting(SOME "")
+val greeting3 = greeting(SOME "Kike")
 
 val test1 = alternate1 = ~2
 val test2 = alternate2 = 3
@@ -23,3 +26,7 @@ val test8 = min_max5 = SOME (5,5)
 val test9 = cumsum1 = [0]
 val test10 = cumsum2 = [3]
 val test11 = cumsum3 = [1, 5, 25]
+
+val test12 = greeting1 = "Hello there, you!"
+val test13 = greeting2 = "Hello there, you!"
+val test14 = greeting3 = "Hello there, Kike!"

@@ -37,3 +37,12 @@ fun cumsum (ints : int list) =
 	in
 	    accumulate(0, ints)
 	end
+
+fun greeting (name : string option) =
+    let
+	val person = if isSome name andalso valOf name <> ""
+		     then valOf name
+		     else "you"
+    in
+	"Hello there, " ^ person ^ "!"
+    end
