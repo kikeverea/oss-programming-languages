@@ -24,3 +24,16 @@ fun min_max (nums : int list) =
 	in
 	    SOME(set_max(set_min(minmax, hd nums), hd nums))
 	end
+
+fun cumsum (ints : int list) =
+    if null ints
+    then [0]
+    else
+	let
+	    fun accumulate (sum : int, ints : int list) =
+		if null ints
+		then []
+		else (sum + (hd ints))::accumulate(sum + (hd ints), tl ints)
+	in
+	    accumulate(0, ints)
+	end
