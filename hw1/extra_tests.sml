@@ -12,6 +12,14 @@ val cumsum3 = cumsum [1,4,20]
 val greeting1 = greeting(NONE)
 val greeting2 = greeting(SOME "")
 val greeting3 = greeting(SOME "Kike")
+val repeat1 = repeat([], [])
+val repeat2 = repeat([], [1,2,3])
+val repeat3 = repeat([1, 2, 3], [])
+val repeat4 = repeat([1, 2, 3], [0, 0, 0])
+val repeat5 = repeat([1, 2, 3], [3])
+val repeat6 = repeat([1, 2, 3], [3, 2, 1])
+val repeat7 = repeat([1, 2, 3], [3, 0, 1])
+val repeat8 = repeat([1,2,3], [4,0,3])
 
 val test1 = alternate1 = ~2
 val test2 = alternate2 = 3
@@ -30,3 +38,22 @@ val test11 = cumsum3 = [1, 5, 25]
 val test12 = greeting1 = "Hello there, you!"
 val test13 = greeting2 = "Hello there, you!"
 val test14 = greeting3 = "Hello there, Kike!"
+
+val test15 = repeat1 = []
+val test16 = repeat2 = []
+val test17 = repeat3 = [1,2,3]
+val test18 = repeat4 = []
+val test19 = repeat5 = [1,1,1,2,3]
+val test20 = repeat6 = [1,1,1,2,2,3]
+val test21 = repeat7 = [1,1,1,3]
+val test22 = repeat8 = [1,1,1,1,3,3,3]
+
+(* 
+val repeat1 = repeat([], [])
+val repeat2 = repeat([], [1,2,3])
+val repeat3 = repeat([1, 2, 3], [])
+val repeat4 = repeat([1, 2, 3], [0, 0, 0])
+val repeat5 = repeat([1, 2, 3], [3]
+val repeat6 = repeat([1, 2, 3], [3, 2, 1]
+val repeat7 = repeat([1, 2, 3], [3, 0, 1]							     
+*)

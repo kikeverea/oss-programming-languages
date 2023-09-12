@@ -46,3 +46,18 @@ fun greeting (name : string option) =
     in
 	"Hello there, " ^ person ^ "!"
     end
+
+fun repeat (lst : int list, times : int list) =
+    let
+	fun append_n_times(value : int, lst : int list, times : int) =
+	    if times = 0
+	    then lst
+	    else value::append_n_times(value, lst, times - 1)
+    in
+	if null lst
+	then []
+	else if null times
+	then lst
+	else append_n_times(hd lst, repeat(tl lst, tl times), hd times)
+    end
+	
