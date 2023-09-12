@@ -80,3 +80,6 @@ fun addAllOpt (nums : int option list) =
 	    then sum
 	    else SOME ((valOf sum) + (valOf to_add))
 	end
+
+fun any (lst : bool list) =
+    not(null lst) andalso ((hd lst) orelse any(tl lst))
