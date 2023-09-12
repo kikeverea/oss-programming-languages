@@ -61,3 +61,8 @@ fun repeat (lst : int list, times : int list) =
 	else append_n_times(hd lst, repeat(tl lst, tl times), hd times)
     end
 	
+fun addOpt (num1 : int option, num2 : int option) =
+    if (isSome num1) andalso (isSome num2)
+    then SOME((valOf num1) + (valOf num2))
+    else NONE
+

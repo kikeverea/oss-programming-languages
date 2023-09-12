@@ -20,6 +20,12 @@ val repeat5 = repeat([1, 2, 3], [3])
 val repeat6 = repeat([1, 2, 3], [3, 2, 1])
 val repeat7 = repeat([1, 2, 3], [3, 0, 1])
 val repeat8 = repeat([1,2,3], [4,0,3])
+val addOpt1 = addOpt(NONE, NONE)
+val addOpt2 = addOpt(NONE, SOME 1)
+val addOpt3 = addOpt(SOME 1, NONE)
+val addOpt4 = addOpt(SOME 5, SOME 3)
+val addOpt5 = addOpt(SOME ~1, SOME 4)
+val addOpt6 = addOpt(SOME 0, SOME 0)
 
 val test1 = alternate1 = ~2
 val test2 = alternate2 = 3
@@ -48,12 +54,9 @@ val test20 = repeat6 = [1,1,1,2,2,3]
 val test21 = repeat7 = [1,1,1,3]
 val test22 = repeat8 = [1,1,1,1,3,3,3]
 
-(* 
-val repeat1 = repeat([], [])
-val repeat2 = repeat([], [1,2,3])
-val repeat3 = repeat([1, 2, 3], [])
-val repeat4 = repeat([1, 2, 3], [0, 0, 0])
-val repeat5 = repeat([1, 2, 3], [3]
-val repeat6 = repeat([1, 2, 3], [3, 2, 1]
-val repeat7 = repeat([1, 2, 3], [3, 0, 1]							     
-*)
+val test23 = addOpt1 = NONE
+val test24 = addOpt2 = NONE
+val test25 = addOpt3 = NONE
+val test26 = addOpt4 = SOME 8
+val test27 = addOpt5 = SOME 3
+val test28 = addOpt6 = SOME 0
