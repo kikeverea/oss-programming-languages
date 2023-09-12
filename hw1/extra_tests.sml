@@ -26,6 +26,10 @@ val addOpt3 = addOpt(SOME 1, NONE)
 val addOpt4 = addOpt(SOME 5, SOME 3)
 val addOpt5 = addOpt(SOME ~1, SOME 4)
 val addOpt6 = addOpt(SOME 0, SOME 0)
+val addAllOpt1 = addAllOpt([])
+val addAllOpt2 = addAllOpt([NONE, NONE, NONE])
+val addAllOpt3 = addAllOpt([SOME 2])
+val addAllOpt4 = addAllOpt([SOME 5, SOME 3, SOME 2])
 
 val test1 = alternate1 = ~2
 val test2 = alternate2 = 3
@@ -60,3 +64,7 @@ val test25 = addOpt3 = NONE
 val test26 = addOpt4 = SOME 8
 val test27 = addOpt5 = SOME 3
 val test28 = addOpt6 = SOME 0
+val test29 = addAllOpt1 = NONE
+val test30 = addAllOpt2 = NONE
+val test31 = addAllOpt3 = SOME 2
+val test32 = addAllOpt4 = SOME 10

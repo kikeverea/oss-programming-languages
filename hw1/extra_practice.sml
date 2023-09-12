@@ -66,3 +66,17 @@ fun addOpt (num1 : int option, num2 : int option) =
     then SOME((valOf num1) + (valOf num2))
     else NONE
 
+fun addAllOpt (nums : int option list) =
+    if null nums
+    then NONE
+    else
+	let
+	    val to_add = hd nums
+	    val sum = addAllOpt(tl nums)
+	in
+	    if not(isSome sum)
+	    then to_add
+	    else if not(isSome to_add)
+	    then sum
+	    else SOME ((valOf sum) + (valOf to_add))
+	end
