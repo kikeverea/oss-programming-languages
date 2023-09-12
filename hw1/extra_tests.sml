@@ -36,6 +36,12 @@ val any3 = any([true, false, true])
 val any4 = any([false, true, true])
 val any5 = any([true, true, false])
 val any6 = any([false, false, false])
+val zip1 = zip([], [])
+val zip2 = zip([1,2,3], [])
+val zip3 = zip([], [1,2,3])
+val zip4 = zip([1,2,3], [4,5,6])
+val zip5 = zip([1,2,3], [4,5])
+val zip6 = zip([1,2], [4, 5, 6])
 
 val all1 = all([])
 val all2 = all([true, true, true])
@@ -95,3 +101,10 @@ val test41 = all3 = false
 val test42 = all4 = false
 val test43 = all5 = false
 val test44 = all6 = false
+
+val test45 = zip1 = []
+val test46 = zip2 = []
+val test47 = zip3 = []
+val test48 = zip4 = [(1,4), (2,5), (3,6)]
+val test49 = zip5 = [(1,4), (2,5)]
+val test50 = zip6 = [(1,4), (2,5)]

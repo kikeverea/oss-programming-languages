@@ -86,3 +86,8 @@ fun any (lst : bool list) =
 
 fun all (lst : bool list) =
     null lst orelse ((hd lst) andalso all(tl lst))
+
+fun zip (lst1 : int list, lst2 : int list) =
+    if null lst1 orelse null lst2
+    then []
+    else (hd lst1, hd lst2)::zip(tl lst1, tl lst2)
