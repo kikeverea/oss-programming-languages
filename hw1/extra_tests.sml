@@ -37,6 +37,13 @@ val any4 = any([false, true, true])
 val any5 = any([true, true, false])
 val any6 = any([false, false, false])
 
+val all1 = all([])
+val all2 = all([true, true, true])
+val all3 = all([true, false, true])
+val all4 = all([false, true, true])
+val all5 = all([true, true, false])
+val all6 = all([false, false, false])
+
 val test1 = alternate1 = ~2
 val test2 = alternate2 = 3
 
@@ -81,3 +88,10 @@ val test35 = any3 = true
 val test36 = any4 = true
 val test37 = any5 = true
 val test38 = any6 = false
+
+val test39 = all1 = true
+val test40 = all2 = true
+val test41 = all3 = false
+val test42 = all4 = false
+val test43 = all5 = false
+val test44 = all6 = false

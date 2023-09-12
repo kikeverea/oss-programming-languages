@@ -83,3 +83,6 @@ fun addAllOpt (nums : int option list) =
 
 fun any (lst : bool list) =
     not(null lst) andalso ((hd lst) orelse any(tl lst))
+
+fun all (lst : bool list) =
+    null lst orelse ((hd lst) andalso all(tl lst))
