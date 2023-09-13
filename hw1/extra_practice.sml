@@ -91,3 +91,28 @@ fun zip (lst1 : int list, lst2 : int list) =
     if null lst1 orelse null lst2
     then []
     else (hd lst1, hd lst2)::zip(tl lst1, tl lst2)
+
+fun zipRecycle (lst1 : int list, lst2 : int list) =
+    let
+	fun recycle (recycle_init : int list, recycle_consume : int list, consume : int list, consume_pos : int) =
+	    if null consume orelse null recycle_init
+	    then []
+	    else
+		let
+		    val to_recycle = if null recycle_consume then recycle_init else recycle_consume
+		    val pair = if consume_pos = 1 then (hd consume, hd to_recycle) else (hd to_recycle, hd consume)
+		in
+		    pair::recycle(recycle_init, tl to_recycle, tl consume, consume_pos)
+		end
+
+	fun zip (zip1 : int list, zip2 : int list) =
+	    if null zip1 orelse null zip2
+	    then if null zip1
+		 then recycle(lst1, lst1, zip2, 2)
+		 else if null zip2
+		 then recycle(lst2, lst2, zip1, 1)
+		 else []
+	    else (hd zip1, hd zip2)::zip(tl zip1, tl zip2)
+    in
+	 zip(lst1, lst2)
+    end

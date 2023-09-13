@@ -36,23 +36,28 @@ val any3 = any([true, false, true])
 val any4 = any([false, true, true])
 val any5 = any([true, true, false])
 val any6 = any([false, false, false])
-val zip1 = zip([], [])
-val zip2 = zip([1,2,3], [])
-val zip3 = zip([], [1,2,3])
-val zip4 = zip([1,2,3], [4,5,6])
-val zip5 = zip([1,2,3], [4,5])
-val zip6 = zip([1,2], [4, 5, 6])
-
 val all1 = all([])
 val all2 = all([true, true, true])
 val all3 = all([true, false, true])
 val all4 = all([false, true, true])
 val all5 = all([true, true, false])
 val all6 = all([false, false, false])
+val zip1 = zip([], [])
+val zip2 = zip([1,2,3], [])
+val zip3 = zip([], [1,2,3])
+val zip4 = zip([1,2,3], [4,5,6])
+val zip5 = zip([1,2,3], [4,5])
+val zip6 = zip([1,2], [4, 5, 6])
+val recycle1 = zipRecycle([], [])
+val recycle2 = zipRecycle([1,2,3], [])
+val recycle3 = zipRecycle([], [1,2,3])
+val recycle4 = zipRecycle([1,2,3], [4,5,6])
+val recycle5 = zipRecycle([1,2,3], [4,5])
+val recycle6 = zipRecycle([1,2], [4, 5, 6])
+val recycle7 = zipRecycle ([1,2,3], [1, 2, 3, 4, 5, 6, 7])
 
 val test1 = alternate1 = ~2
 val test2 = alternate2 = 3
-
 val test3 = min_max_e = NONE
 val test4 = min_max1 = SOME (1,5)
 val test5 = min_max2 = SOME (1,5)
@@ -108,3 +113,11 @@ val test47 = zip3 = []
 val test48 = zip4 = [(1,4), (2,5), (3,6)]
 val test49 = zip5 = [(1,4), (2,5)]
 val test50 = zip6 = [(1,4), (2,5)]
+
+val test51 = recycle1 = []
+val test52 = recycle2 = []
+val test53 = recycle3 = []
+val test54 = recycle4 = [(1,4), (2,5), (3,6)]
+val test55 = recycle5 = [(1,4), (2,5), (3,4)]
+val test56 = recycle6 = [(1,4), (2,5), (1,6)]
+val test57 = recycle7 = [(1,1), (2,2), (3, 3), (1,4), (2,5), (3,6), (1,7)]
