@@ -135,3 +135,16 @@ fun lookup (pairs : (string * int) list, lookup_str : string) =
     else if (#1 (hd pairs) = lookup_str)
     then SOME (#2 (hd pairs))
     else lookup(tl pairs, lookup_str)
+
+fun splitup (numbers : int list) =
+    if null numbers
+    then ([],[])
+    else
+	let
+	    val split = splitup(tl numbers)
+	    val number = hd numbers
+	in
+	    if number >= 0
+	    then (number::(#1 split), #2 split)
+	    else (#1 split, number::(#2 split))
+	end

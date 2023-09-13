@@ -66,7 +66,13 @@ val lookup2 = lookup([("str",1)], "")
 val lookup3 = lookup([("str1",1), ("str2",2), ("str3",3)], "str1")
 val lookup4 = lookup([("str1",1), ("str2",2), ("str3",3)], "str2")
 val lookup5 = lookup([("str1",1), ("str2",2), ("str3",3)], "str3")
-
+val splitup1 = splitup([])
+val splitup2 = splitup([1,2,3])
+val splitup3 = splitup([~1,~2,~3])
+val splitup4 = splitup([1,2,3,~4,~5,~6])
+val splitup5 = splitup([~4,~5,~6,1,2,3])
+val splitup6 = splitup([1,~5,~4,3,~6,2])
+		      
 val test1 = alternate1 = ~2
 val test2 = alternate2 = 3
 val test3 = min_max_e = NONE
@@ -145,3 +151,19 @@ val test65 = lookup2 = NONE
 val test66 = lookup3 = SOME 1
 val test67 = lookup4 = SOME 2
 val test68 = lookup5 = SOME 3
+
+val test69 = splitup1 = ([],[])
+val test70 = splitup2 = ([1,2,3],[])
+val test71 = splitup3 = ([],[~1,~2,~3])
+val test72 = splitup4 = ([1,2,3],[~4,~5,~6])
+val test73 = splitup5 = ([1,2,3],[~4,~5,~6])
+val test74 = splitup6 = ([1,3,2],[~5,~4,~6])
+			    
+			    
+(*
+val splitup1 = splitup([])
+val splitup2 = splitup([1,2,3])
+val splitup3 = splitup([~1,~2,~3])
+val splitup4 = splitup([1,2,3,~4,~5,~6])
+val splitup5 = splitup([~4,~5,~6,1,2,3])
+val splitup6 = splitup([1,~5,~4,3,~6,2]) *)
