@@ -165,4 +165,9 @@ fun splitAt (numbers : int list, threshold : int) =
 fun isSorted (lst : int list) =
     if null lst orelse null(tl lst)
     then true
-    else hd lst < hd(tl lst) andalso isSorted(tl lst)
+    else hd lst <= hd(tl lst) andalso isSorted(tl lst)
+
+fun isAnySorted (lst : int list) =
+    if null lst orelse null(tl lst)
+    then true
+    else isSorted(lst) orelse hd lst >= hd(tl lst) andalso isAnySorted(tl lst)

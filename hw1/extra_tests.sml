@@ -81,7 +81,15 @@ val splitAt6 = splitAt([1,~5,~4,3,~6,2], 0)
 val isSorted1 = isSorted([])
 val isSorted2 = isSorted([1])
 val isSorted3 = isSorted([1,2,3])
-val isSorted4 = isSorted([3,2,1])
+val isSorted4 = isSorted([1,1,2,2,3,3,3])
+val isSorted5 = isSorted([3,2,1])
+val isAnySorted1 = isAnySorted([])
+val isAnySorted2 = isAnySorted([1])
+val isAnySorted3 = isAnySorted([1,2,3])
+val isAnySorted4 = isAnySorted([1,1,2,2,3,3])
+val isAnySorted5 = isAnySorted([3,2,1])
+val isAnySorted6 = isAnySorted([3,3,2,2,1,1])
+val isAnySorted7 = isAnySorted([4,1,2,36,5])
 		      
 val test1 = alternate1 = ~2
 val test2 = alternate2 = 3
@@ -179,4 +187,13 @@ val test80 = splitAt6 = ([1,3,2],[~5,~4,~6])
 val test81 = isSorted1 = true
 val test82 = isSorted2 = true
 val test83 = isSorted3 = true
-val test84 = isSorted4 = false
+val test84 = isSorted4 = true
+val test85 = isSorted5 = false
+
+val test86 = isAnySorted1 = true
+val test87 = isAnySorted2 = true
+val test88 = isAnySorted3 = true
+val test89 = isAnySorted4 = true
+val test90 = isAnySorted5 = true
+val test91 = isAnySorted6 = true
+val test92 = isAnySorted7 = false
