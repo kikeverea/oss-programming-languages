@@ -61,6 +61,11 @@ val zipOpt3 = zipOpt([], [1,2,3])
 val zipOpt4 = zipOpt([1], [1,2])
 val zipOpt5 = zipOpt([1,2], [1])
 val zipOpt6 = zipOpt([1,2,3], [4,5,6])
+val lookup1 = lookup([], "")
+val lookup2 = lookup([("str",1)], "")
+val lookup3 = lookup([("str1",1), ("str2",2), ("str3",3)], "str1")
+val lookup4 = lookup([("str1",1), ("str2",2), ("str3",3)], "str2")
+val lookup5 = lookup([("str1",1), ("str2",2), ("str3",3)], "str3")
 
 val test1 = alternate1 = ~2
 val test2 = alternate2 = 3
@@ -134,3 +139,9 @@ val test60 = zipOpt3 = NONE
 val test61 = zipOpt4 = NONE
 val test62 = zipOpt5 = NONE
 val test63 = zipOpt6 = SOME [(1,4), (2,5), (3,6)]
+
+val test64 = lookup1 = NONE
+val test65 = lookup2 = NONE
+val test66 = lookup3 = SOME 1
+val test67 = lookup4 = SOME 2
+val test68 = lookup5 = SOME 3

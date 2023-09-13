@@ -128,3 +128,10 @@ fun zipOpt (lst1 : int list, lst2 : int list) =
 	   then SOME ((hd lst1, hd lst2)::(valOf zipped))
 	   else NONE
 	end
+
+fun lookup (pairs : (string * int) list, lookup_str : string) =
+    if null pairs
+    then NONE
+    else if (#1 (hd pairs) = lookup_str)
+    then SOME (#2 (hd pairs))
+    else lookup(tl pairs, lookup_str)
