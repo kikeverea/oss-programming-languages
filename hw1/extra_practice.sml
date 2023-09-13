@@ -148,3 +148,16 @@ fun splitup (numbers : int list) =
 	    then (number::(#1 split), #2 split)
 	    else (#1 split, number::(#2 split))
 	end
+
+fun splitAt (numbers : int list, threshold : int) =
+    if null numbers
+    then ([],[])
+    else
+	let
+	    val split = splitup(tl numbers)
+	    val number = hd numbers
+	in
+	    if number >= threshold
+	    then (number::(#1 split), #2 split)
+	    else (#1 split, number::(#2 split))
+	end

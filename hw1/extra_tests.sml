@@ -72,6 +72,12 @@ val splitup3 = splitup([~1,~2,~3])
 val splitup4 = splitup([1,2,3,~4,~5,~6])
 val splitup5 = splitup([~4,~5,~6,1,2,3])
 val splitup6 = splitup([1,~5,~4,3,~6,2])
+val splitAt1 = splitAt([], 1)
+val splitAt2 = splitAt([1,2,3], 0)
+val splitAt3 = splitAt([~1,~2,~3], 0)
+val splitAt4 = splitAt([1,2,3,~4,~5,~6], 0)
+val splitAt5 = splitAt([~4,~5,~6,1,2,3], 0)
+val splitAt6 = splitAt([1,~5,~4,3,~6,2], 0)
 		      
 val test1 = alternate1 = ~2
 val test2 = alternate2 = 3
@@ -158,12 +164,10 @@ val test71 = splitup3 = ([],[~1,~2,~3])
 val test72 = splitup4 = ([1,2,3],[~4,~5,~6])
 val test73 = splitup5 = ([1,2,3],[~4,~5,~6])
 val test74 = splitup6 = ([1,3,2],[~5,~4,~6])
-			    
-			    
-(*
-val splitup1 = splitup([])
-val splitup2 = splitup([1,2,3])
-val splitup3 = splitup([~1,~2,~3])
-val splitup4 = splitup([1,2,3,~4,~5,~6])
-val splitup5 = splitup([~4,~5,~6,1,2,3])
-val splitup6 = splitup([1,~5,~4,3,~6,2]) *)
+
+val test75 = splitAt1 = ([],[])
+val test76 = splitAt2 = ([1,2,3],[])
+val test77 = splitAt3 = ([],[~1,~2,~3])
+val test78 = splitAt4 = ([1,2,3],[~4,~5,~6])
+val test79 = splitAt5 = ([1,2,3],[~4,~5,~6])
+val test80 = splitAt6 = ([1,3,2],[~5,~4,~6])
