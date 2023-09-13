@@ -116,3 +116,15 @@ fun zipRecycle (lst1 : int list, lst2 : int list) =
     in
 	 zip(lst1, lst2)
     end
+
+fun zipOpt (lst1 : int list, lst2 : int list) =
+    if null lst1 andalso null lst2
+    then SOME []
+    else if null lst1 orelse null lst2
+    then NONE
+    else
+	let val zipped = zipOpt(tl lst1, tl lst2)
+	in if isSome zipped
+	   then SOME ((hd lst1, hd lst2)::(valOf zipped))
+	   else NONE
+	end

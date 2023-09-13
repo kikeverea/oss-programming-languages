@@ -55,6 +55,12 @@ val recycle4 = zipRecycle([1,2,3], [4,5,6])
 val recycle5 = zipRecycle([1,2,3], [4,5])
 val recycle6 = zipRecycle([1,2], [4, 5, 6])
 val recycle7 = zipRecycle ([1,2,3], [1, 2, 3, 4, 5, 6, 7])
+val zipOpt1 = zipOpt([], [])
+val zipOpt2 = zipOpt([1,2,3], [])
+val zipOpt3 = zipOpt([], [1,2,3])
+val zipOpt4 = zipOpt([1], [1,2])
+val zipOpt5 = zipOpt([1,2], [1])
+val zipOpt6 = zipOpt([1,2,3], [4,5,6])
 
 val test1 = alternate1 = ~2
 val test2 = alternate2 = 3
@@ -121,3 +127,10 @@ val test54 = recycle4 = [(1,4), (2,5), (3,6)]
 val test55 = recycle5 = [(1,4), (2,5), (3,4)]
 val test56 = recycle6 = [(1,4), (2,5), (1,6)]
 val test57 = recycle7 = [(1,1), (2,2), (3, 3), (1,4), (2,5), (3,6), (1,7)]
+
+val test58 = zipOpt1 = SOME []
+val test59 = zipOpt2 = NONE
+val test60 = zipOpt3 = NONE
+val test61 = zipOpt4 = NONE
+val test62 = zipOpt5 = NONE
+val test63 = zipOpt6 = SOME [(1,4), (2,5), (3,6)]
