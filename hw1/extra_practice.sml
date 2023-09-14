@@ -171,3 +171,15 @@ fun isAnySorted (lst : int list) =
     if null lst orelse null(tl lst)
     then true
     else isSorted(lst) orelse hd lst >= hd(tl lst) andalso isAnySorted(tl lst)
+
+fun sortedMerge (sorted1 : int list, sorted2 : int list) =
+    if null sorted1 andalso null sorted2
+    then []
+    else if not(null sorted1) andalso not(null sorted2)
+    then if hd sorted1 <= hd sorted2
+	 then hd sorted1::sortedMerge(tl sorted1, sorted2)
+	 else hd sorted2::sortedMerge(sorted1, tl sorted2)
+    else
+	if null sorted1
+	then hd sorted2::sortedMerge(sorted1, tl sorted2)
+	else hd sorted1::sortedMerge(tl sorted1, sorted2)

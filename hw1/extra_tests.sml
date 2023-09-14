@@ -90,7 +90,14 @@ val isAnySorted4 = isAnySorted([1,1,2,2,3,3])
 val isAnySorted5 = isAnySorted([3,2,1])
 val isAnySorted6 = isAnySorted([3,3,2,2,1,1])
 val isAnySorted7 = isAnySorted([4,1,2,36,5])
-		      
+val sortedMerge1 = sortedMerge([],[])
+val sortedMerge2 = sortedMerge([1,2,3],[])
+val sortedMerge3 = sortedMerge([],[1,2,3])
+val sortedMerge4 = sortedMerge([1,2,3], [4,5,6])
+val sortedMerge5 = sortedMerge([1,2], [4,5,6])
+val sortedMerge6 = sortedMerge([1,2,3], [4,6])
+val sortedMerge7 = sortedMerge ([1,4,7], [5,8,9])
+
 val test1 = alternate1 = ~2
 val test2 = alternate2 = 3
 val test3 = min_max_e = NONE
@@ -197,3 +204,11 @@ val test89 = isAnySorted4 = true
 val test90 = isAnySorted5 = true
 val test91 = isAnySorted6 = true
 val test92 = isAnySorted7 = false
+
+val test93 = sortedMerge1 = []
+val test94 = sortedMerge2 = [1,2,3]
+val test95 = sortedMerge3 = [1,2,3]
+val test96 = sortedMerge4 = [1,2,3,4,5,6]
+val test97 = sortedMerge5 = [1,2,4,5,6]
+val test98 = sortedMerge6 = [1,2,3,4,6]
+val test99 = sortedMerge7 = [1,4,5,7,8,9]
