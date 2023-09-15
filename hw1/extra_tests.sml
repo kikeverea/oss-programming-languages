@@ -97,6 +97,13 @@ val sortedMerge4 = sortedMerge([1,2,3], [4,5,6])
 val sortedMerge5 = sortedMerge([1,2], [4,5,6])
 val sortedMerge6 = sortedMerge([1,2,3], [4,6])
 val sortedMerge7 = sortedMerge ([1,4,7], [5,8,9])
+val qsort1 = qsort([])
+val qsort2 = qsort([1])
+val qsort3 = qsort([2,1])
+val qsort4 = qsort([2,1,3])
+val qsort5 = qsort([5,1,4,3,6,2])
+val qsort6 = qsort([1,2,3,4,2,4])
+val qsort7 = qsort([5,1,2,3,6,4,2,5,6,9,7,4,8,9])
 
 val test1 = alternate1 = ~2
 val test2 = alternate2 = 3
@@ -212,3 +219,11 @@ val test96 = sortedMerge4 = [1,2,3,4,5,6]
 val test97 = sortedMerge5 = [1,2,4,5,6]
 val test98 = sortedMerge6 = [1,2,3,4,6]
 val test99 = sortedMerge7 = [1,4,5,7,8,9]
+
+val test100 = qsort1 = []
+val test101 = qsort2 = [1]
+val test102 = qsort3 = [1,2]
+val test103 = qsort4 = [1,2,3]
+val test104 = qsort5 = [1,2,3,4,5,6]
+val test105 = qsort6 = [1,2,2,3,4,4]
+val test106 = qsort7 = [1,2,2,3,4,4,5,5,6,6,7,8,9,9]

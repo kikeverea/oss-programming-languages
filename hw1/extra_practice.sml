@@ -183,3 +183,27 @@ fun sortedMerge (sorted1 : int list, sorted2 : int list) =
 	if null sorted1
 	then hd sorted2::sortedMerge(sorted1, tl sorted2)
 	else hd sorted1::sortedMerge(tl sorted1, sorted2)
+
+fun qsort (lst : int list) =
+    if null lst
+    then []
+    else let
+	fun append_to (lst : int list, target : int list) =
+	    if null lst
+	    then target
+	    else hd lst::append_to(tl lst, target)
+
+	val threshold = hd lst
+	val lists = splitAt(tl lst, threshold)
+	val sorted1 = qsort(#1 lists)
+	val sorted2 = qsort(#2 lists)
+	val lower = if null sorted1 andalso null sorted2 orelse
+		       null sorted1 andalso hd sorted2 > threshold orelse
+		       null sorted2 andalso hd sorted1 < threshold
+		    then sorted1
+		    else sorted2
+			     
+	val higher = if lower = sorted2 then sorted1 else sorted2
+    in
+	append_to(lower, threshold::higher)
+    end
