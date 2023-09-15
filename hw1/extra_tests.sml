@@ -104,6 +104,11 @@ val qsort4 = qsort([2,1,3])
 val qsort5 = qsort([5,1,4,3,6,2])
 val qsort6 = qsort([1,2,3,4,2,4])
 val qsort7 = qsort([5,1,2,3,6,4,2,5,6,9,7,4,8,9])
+val divide1 = divide([])
+val divide2 = divide([1])
+val divide3 = divide([1,2,3,4])
+val divide4 = divide([1,2,3])
+val divide5 = divide ([1,2,3,4,5,6,7])
 
 val test1 = alternate1 = ~2
 val test2 = alternate2 = 3
@@ -227,3 +232,9 @@ val test103 = qsort4 = [1,2,3]
 val test104 = qsort5 = [1,2,3,4,5,6]
 val test105 = qsort6 = [1,2,2,3,4,4]
 val test106 = qsort7 = [1,2,2,3,4,4,5,5,6,6,7,8,9,9]
+
+val test107 = divide1 = ([],[])
+val test108 = divide2 = ([1],[])
+val test109 = divide3 = ([1,3],[2,4])
+val test110 = divide4 = ([1,3],[2])
+val test111 = divide5 = ([1,3,5,7], [2,4,6])

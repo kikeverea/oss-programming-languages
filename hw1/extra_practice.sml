@@ -207,3 +207,20 @@ fun qsort (lst : int list) =
     in
 	append_to(lower, threshold::higher)
     end
+
+fun divide (nums : int list) =
+     let
+	fun switch_divide (nums : int list, switch : int) =
+	    if null nums
+	    then ([],[])
+	    else let
+		val lists = switch_divide(tl nums, switch * ~1)
+	    in
+		if switch < 0
+		then (hd nums::(#1 lists), #2 lists)
+		else (#1 lists, hd nums::(#2 lists))
+	    end
+     in
+	 switch_divide(nums, ~1)
+     end
+	 
