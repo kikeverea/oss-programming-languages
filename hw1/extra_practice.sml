@@ -154,7 +154,7 @@ fun splitAt (numbers : int list, threshold : int) =
     then ([],[])
     else
 	let
-	    val split = splitup(tl numbers)
+	    val split = splitAt(tl numbers, threshold)
 	    val number = hd numbers
 	in
 	    if number >= threshold
