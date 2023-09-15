@@ -109,6 +109,13 @@ val divide2 = divide([1])
 val divide3 = divide([1,2,3,4])
 val divide4 = divide([1,2,3])
 val divide5 = divide ([1,2,3,4,5,6,7])
+val notQuick1 = not_so_quick_sort([])
+val notQuick2 = not_so_quick_sort([1])
+val notQuick3 = not_so_quick_sort([2,1])
+val notQuick4 = not_so_quick_sort([2,1,3])
+val notQuick5 = not_so_quick_sort([5,1,4,3,6,2])
+val notQuick6 = not_so_quick_sort([1,2,3,4,2,4])
+val notQuick7 = not_so_quick_sort([5,1,2,3,6,4,2,5,6,9,7,4,8,9])
 
 val test1 = alternate1 = ~2
 val test2 = alternate2 = 3
@@ -238,3 +245,11 @@ val test108 = divide2 = ([1],[])
 val test109 = divide3 = ([1,3],[2,4])
 val test110 = divide4 = ([1,3],[2])
 val test111 = divide5 = ([1,3,5,7], [2,4,6])
+
+val test112 = notQuick1 = []
+val test113 = notQuick2 = [1]
+val test114 = notQuick3 = [1,2]
+val test115 = notQuick4 = [1,2,3]
+val test116 = notQuick5 = [1,2,3,4,5,6]
+val test117 = notQuick6 = [1,2,2,3,4,4]
+val test118 = notQuick7 = [1,2,2,3,4,4,5,5,6,6,7,8,9,9]

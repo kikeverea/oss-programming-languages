@@ -1,0 +1,2925 @@
+Standard ML of New Jersey v110.79 [built: Sat Oct 26 12:27:04 2019]
+- use "extra_practice.sml";
+[opening extra_practice.sml]
+val alternate = fn : int list -> int
+val min_max = fn : int list -> (int * int) option
+val cumsum = fn : int list -> int list
+val greeting = fn : string option -> string
+val repeat = fn : int list * int list -> int list
+val addOpt = fn : int option * int option -> int option
+val addAllOpt = fn : int option list -> int option
+val any = fn : bool list -> bool
+val all = fn : bool list -> bool
+val zip = fn : int list * int list -> (int * int) list
+val zipRecycle = fn : int list * int list -> (int * int) list
+val zipOpt = fn : int list * int list -> (int * int) list option
+val lookup = fn : (string * int) list * string -> int option
+val splitup = fn : int list -> int list * int list
+val splitAt = fn : int list * int -> int list * int list
+val isSorted = fn : int list -> bool
+val isAnySorted = fn : int list -> bool
+val sortedMerge = fn : int list * int list -> int list
+val qsort = fn : int list -> int list
+val it = () : unit
+- use "extra_tests.sml";
+[opening extra_tests.sml]
+val alternate1 = ~2 : int
+val alternate2 = 3 : int
+val min_max_e = NONE : (int * int) option
+val min_max1 = SOME (1,5) : (int * int) option
+val min_max2 = SOME (1,5) : (int * int) option
+val min_max3 = SOME (1,5) : (int * int) option
+val min_max4 = SOME (1,1) : (int * int) option
+val min_max5 = SOME (5,5) : (int * int) option
+val cumsum1 = [0] : int list
+val cumsum2 = [3] : int list
+val cumsum3 = [1,5,25] : int list
+val greeting1 = "Hello there, you!" : string
+val greeting2 = "Hello there, you!" : string
+val greeting3 = "Hello there, Kike!" : string
+val repeat1 = [] : int list
+val repeat2 = [] : int list
+val repeat3 = [1,2,3] : int list
+val repeat4 = [] : int list
+val repeat5 = [1,1,1,2,3] : int list
+val repeat6 = [1,1,1,2,2,3] : int list
+val repeat7 = [1,1,1,3] : int list
+val repeat8 = [1,1,1,1,3,3,3] : int list
+val addOpt1 = NONE : int option
+val addOpt2 = NONE : int option
+val addOpt3 = NONE : int option
+val addOpt4 = SOME 8 : int option
+val addOpt5 = SOME 3 : int option
+val addOpt6 = SOME 0 : int option
+val addAllOpt1 = NONE : int option
+val addAllOpt2 = NONE : int option
+val addAllOpt3 = SOME 2 : int option
+val addAllOpt4 = SOME 10 : int option
+val any1 = false : bool
+val any2 = true : bool
+val any3 = true : bool
+val any4 = true : bool
+val any5 = true : bool
+val any6 = false : bool
+val all1 = true : bool
+val all2 = true : bool
+val all3 = false : bool
+val all4 = false : bool
+val all5 = false : bool
+val all6 = false : bool
+val zip1 = [] : (int * int) list
+val zip2 = [] : (int * int) list
+val zip3 = [] : (int * int) list
+val zip4 = [(1,4),(2,5),(3,6)] : (int * int) list
+val zip5 = [(1,4),(2,5)] : (int * int) list
+val zip6 = [(1,4),(2,5)] : (int * int) list
+val recycle1 = [] : (int * int) list
+val recycle2 = [] : (int * int) list
+val recycle3 = [] : (int * int) list
+val recycle4 = [(1,4),(2,5),(3,6)] : (int * int) list
+val recycle5 = [(1,4),(2,5),(3,4)] : (int * int) list
+val recycle6 = [(1,4),(2,5),(1,6)] : (int * int) list
+val recycle7 = [(1,1),(2,2),(3,3),(1,4),(2,5),(3,6),(1,7)] : (int * int) list
+val zipOpt1 = SOME [] : (int * int) list option
+val zipOpt2 = NONE : (int * int) list option
+val zipOpt3 = NONE : (int * int) list option
+val zipOpt4 = NONE : (int * int) list option
+val zipOpt5 = NONE : (int * int) list option
+val zipOpt6 = SOME [(1,4),(2,5),(3,6)] : (int * int) list option
+val lookup1 = NONE : int option
+val lookup2 = NONE : int option
+val lookup3 = SOME 1 : int option
+val lookup4 = SOME 2 : int option
+val lookup5 = SOME 3 : int option
+val splitup1 = ([],[]) : int list * int list
+val splitup2 = ([1,2,3],[]) : int list * int list
+val splitup3 = ([],[~1,~2,~3]) : int list * int list
+val splitup4 = ([1,2,3],[~4,~5,~6]) : int list * int list
+val splitup5 = ([1,2,3],[~4,~5,~6]) : int list * int list
+val splitup6 = ([1,3,2],[~5,~4,~6]) : int list * int list
+val splitAt1 = ([],[]) : int list * int list
+val splitAt2 = ([1,2,3],[]) : int list * int list
+val splitAt3 = ([],[~1,~2,~3]) : int list * int list
+val splitAt4 = ([1,2,3],[~4,~5,~6]) : int list * int list
+val splitAt5 = ([1,2,3],[~4,~5,~6]) : int list * int list
+val splitAt6 = ([1,3,2],[~5,~4,~6]) : int list * int list
+val isSorted1 = true : bool
+val isSorted2 = true : bool
+val isSorted3 = true : bool
+val isSorted4 = true : bool
+val isSorted5 = false : bool
+val isAnySorted1 = true : bool
+val isAnySorted2 = true : bool
+val isAnySorted3 = true : bool
+val isAnySorted4 = true : bool
+val isAnySorted5 = true : bool
+val isAnySorted6 = true : bool
+val isAnySorted7 = false : bool
+val sortedMerge1 = [] : int list
+val sortedMerge2 = [1,2,3] : int list
+val sortedMerge3 = [1,2,3] : int list
+val sortedMerge4 = [1,2,3,4,5,6] : int list
+val sortedMerge5 = [1,2,4,5,6] : int list
+val sortedMerge6 = [1,2,3,4,6] : int list
+val sortedMerge7 = [1,4,5,7,8,9] : int list
+val qsort1 = [] : int list
+val qsort2 = [1] : int list
+val qsort3 = [1,2] : int list
+val qsort4 = [1,2,3] : int list
+val qsort5 = [1,2,3,4,5,6] : int list
+val qsort6 = [1,2,2,3,4,4] : int list
+val qsort7 = [1,2,2,3,4,4,5,5,6,6,7,8,...] : int list
+val test1 = true : bool
+val test2 = true : bool
+val test3 = true : bool
+val test4 = true : bool
+val test5 = true : bool
+val test6 = true : bool
+val test7 = true : bool
+val test8 = true : bool
+val test9 = true : bool
+val test10 = true : bool
+val test11 = true : bool
+val test12 = true : bool
+val test13 = true : bool
+val test14 = true : bool
+val test15 = true : bool
+-val test16 = true : bool
+val test17 = true : bool
+val test18 = true : bool
+val test19 = true : bool
+val test20 = true : bool
+val test21 = true : bool
+val test22 = true : bool
+val test23 = true : bool
+val test24 = true : bool
+val test25 = true : bool
+val test26 = true : bool
+val test27 = true : bool
+val test28 = true : bool
+val test29 = true : bool
+val test30 = true : bool
+val test31 = true : bool
+val test32 = true : bool
+val test33 = true : bool
+val test34 = true : bool
+val test35 = true : bool
+val test36 = true : bool
+val test37 = true : bool
+val test38 = true : bool
+val test39 = true : bool
+val test40 = true : bool
+val test41 = true : bool
+val test42 = true : bool
+val test43 = true : bool
+val test44 = true : bool
+val test45 = true : bool
+val test46 = true : bool
+val test47 = true : bool
+val test48 = true : bool
+val test49 = true : bool
+val test50 = true : bool
+val test51 = true : bool
+val test52 = true : bool
+val test53 = true : bool
+val test54 = true : bool
+val test55 = true : bool
+val test56 = true : bool
+val test57 = true : bool
+val test58 = true : bool
+val test59 = true : bool
+val test60 = true : bool
+val test61 = true : bool
+val test62 = true : bool
+val test63 = true : bool
+val test64 = true : bool
+val test65 = true : bool
+val test66 = true : bool
+val test67 = true : bool
+val test68 = true : bool
+val test69 = true : bool
+val test70 = true : bool
+val test71 = true : bool
+val test72 = true : bool
+val test73 = true : bool
+val test74 = true : bool
+val test75 = true : bool
+val test76 = true : bool
+val test77 = true : bool
+val test78 = true : bool
+val test79 = true : bool
+val test80 = true : bool
+val test81 = true : bool
+val test82 = true : bool
+val test83 = true : bool
+val test84 = true : bool
+-val test85 = true : bool
+val test86 = true : bool
+val test87 = true : bool
+val test88 = true : bool
+val test89 = true : bool
+val test90 = true : bool
+val test91 = true : bool
+val test92 = true : bool
+val test93 = true : bool
+val test94 = true : bool
+val test95 = true : bool
+val test96 = true : bool
+val test97 = true : bool
+val test98 = true : bool
+val test99 = true : bool
+val test100 = true : bool
+val test101 = true : bool
+val test102 = true : bool
+val test103 = true : bool
+val test104 = true : bool
+val test105 = false : bool
+val it = () : unit
+- 
+- 
+
+Process sml finished
+Standard ML of New Jersey v110.79 [built: Sat Oct 26 12:27:04 2019]
+- use "extra_practice.sml";
+[opening extra_practice.sml]
+val alternate = fn : int list -> int
+val min_max = fn : int list -> (int * int) option
+val cumsum = fn : int list -> int list
+val greeting = fn : string option -> string
+val repeat = fn : int list * int list -> int list
+val addOpt = fn : int option * int option -> int option
+val addAllOpt = fn : int option list -> int option
+val any = fn : bool list -> bool
+val all = fn : bool list -> bool
+val zip = fn : int list * int list -> (int * int) list
+val zipRecycle = fn : int list * int list -> (int * int) list
+val zipOpt = fn : int list * int list -> (int * int) list option
+val lookup = fn : (string * int) list * string -> int option
+val splitup = fn : int list -> int list * int list
+val splitAt = fn : int list * int -> int list * int list
+val isSorted = fn : int list -> bool
+val isAnySorted = fn : int list -> bool
+val sortedMerge = fn : int list * int list -> int list
+val qsort = fn : int list -> int list
+val it = () : unit
+- use "extra_tests.sml";
+[opening extra_tests.sml]
+val alternate1 = ~2 : int
+val alternate2 = 3 : int
+val min_max_e = NONE : (int * int) option
+val min_max1 = SOME (1,5) : (int * int) option
+val min_max2 = SOME (1,5) : (int * int) option
+val min_max3 = SOME (1,5) : (int * int) option
+val min_max4 = SOME (1,1) : (int * int) option
+val min_max5 = SOME (5,5) : (int * int) option
+val cumsum1 = [0] : int list
+val cumsum2 = [3] : int list
+val cumsum3 = [1,5,25] : int list
+val greeting1 = "Hello there, you!" : string
+val greeting2 = "Hello there, you!" : string
+val greeting3 = "Hello there, Kike!" : string
+val repeat1 = [] : int list
+val repeat2 = [] : int list
+val repeat3 = [1,2,3] : int list
+val repeat4 = [] : int list
+val repeat5 = [1,1,1,2,3] : int list
+val repeat6 = [1,1,1,2,2,3] : int list
+val repeat7 = [1,1,1,3] : int list
+val repeat8 = [1,1,1,1,3,3,3] : int list
+val addOpt1 = NONE : int option
+val addOpt2 = NONE : int option
+val addOpt3 = NONE : int option
+val addOpt4 = SOME 8 : int option
+val addOpt5 = SOME 3 : int option
+val addOpt6 = SOME 0 : int option
+val addAllOpt1 = NONE : int option
+val addAllOpt2 = NONE : int option
+val addAllOpt3 = SOME 2 : int option
+val addAllOpt4 = SOME 10 : int option
+val any1 = false : bool
+val any2 = true : bool
+val any3 = true : bool
+val any4 = true : bool
+val any5 = true : bool
+val any6 = false : bool
+val all1 = true : bool
+val all2 = true : bool
+val all3 = false : bool
+val all4 = false : bool
+val all5 = false : bool
+val all6 = false : bool
+val zip1 = [] : (int * int) list
+val zip2 = [] : (int * int) list
+val zip3 = [] : (int * int) list
+val zip4 = [(1,4),(2,5),(3,6)] : (int * int) list
+val zip5 = [(1,4),(2,5)] : (int * int) list
+val zip6 = [(1,4),(2,5)] : (int * int) list
+val recycle1 = [] : (int * int) list
+val recycle2 = [] : (int * int) list
+val recycle3 = [] : (int * int) list
+val recycle4 = [(1,4),(2,5),(3,6)] : (int * int) list
+val recycle5 = [(1,4),(2,5),(3,4)] : (int * int) list
+val recycle6 = [(1,4),(2,5),(1,6)] : (int * int) list
+val recycle7 = [(1,1),(2,2),(3,3),(1,4),(2,5),(3,6),(1,7)] : (int * int) list
+val zipOpt1 = SOME [] : (int * int) list option
+val zipOpt2 = NONE : (int * int) list option
+val zipOpt3 = NONE : (int * int) list option
+val zipOpt4 = NONE : (int * int) list option
+val zipOpt5 = NONE : (int * int) list option
+val zipOpt6 = SOME [(1,4),(2,5),(3,6)] : (int * int) list option
+val lookup1 = NONE : int option
+val lookup2 = NONE : int option
+val lookup3 = SOME 1 : int option
+val lookup4 = SOME 2 : int option
+val lookup5 = SOME 3 : int option
+val splitup1 = ([],[]) : int list * int list
+val splitup2 = ([1,2,3],[]) : int list * int list
+val splitup3 = ([],[~1,~2,~3]) : int list * int list
+val splitup4 = ([1,2,3],[~4,~5,~6]) : int list * int list
+val splitup5 = ([1,2,3],[~4,~5,~6]) : int list * int list
+val splitup6 = ([1,3,2],[~5,~4,~6]) : int list * int list
+val splitAt1 = ([],[]) : int list * int list
+val splitAt2 = ([1,2,3],[]) : int list * int list
+val splitAt3 = ([],[~1,~2,~3]) : int list * int list
+val splitAt4 = ([1,2,3],[~4,~5,~6]) : int list * int list
+val splitAt5 = ([1,2,3],[~4,~5,~6]) : int list * int list
+val splitAt6 = ([1,3,2],[~5,~4,~6]) : int list * int list
+val isSorted1 = true : bool
+val isSorted2 = true : bool
+val isSorted3 = true : bool
+val isSorted4 = true : bool
+val isSorted5 = false : bool
+val isAnySorted1 = true : bool
+val isAnySorted2 = true : bool
+val isAnySorted3 = true : bool
+val isAnySorted4 = true : bool
+val isAnySorted5 = true : bool
+val isAnySorted6 = true : bool
+val isAnySorted7 = false : bool
+val sortedMerge1 = [] : int list
+val sortedMerge2 = [1,2,3] : int list
+val sortedMerge3 = [1,2,3] : int list
+val sortedMerge4 = [1,2,3,4,5,6] : int list
+val sortedMerge5 = [1,2,4,5,6] : int list
+val sortedMerge6 = [1,2,3,4,6] : int list
+val sortedMerge7 = [1,4,5,7,8,9] : int list
+val qsort1 = [] : int list
+val qsort2 = [1] : int list
+val qsort3 = [1,2] : int list
+val qsort4 = [1,2,3] : int list
+val qsort5 = [1,2,3,4,5,6] : int list
+val qsort6 = [1,2,2,3,4,4] : int list
+val qsort7 = [1,2,2,3,4,4,5,5,6,6,7,8,...] : int list
+val test1 = true : bool
+val test2 = true : bool
+val test3 = true : bool
+val test4 = true : bool
+val test5 = true : bool
+val test6 = true : bool
+val test7 = true : bool
+val test8 = true : bool
+val test9 = true : bool
+val test10 = true : bool
+val test11 = true : bool
+val test12 = true : bool
+val test13 = true : bool
+val test14 = true : bool
+val test15 = true : bool
+val test16 = true : bool
+val test17 = true : bool
+val test18 = true : bool
+val test19 = true : bool
+val test20 = true : bool
+val test21 = true : bool
+val test22 = true : bool
+val test23 = true : bool
+val test24 = true : bool
+val test25 = true : bool
+val test26 = true : bool
+val test27 = true : bool
+val test28 = true : bool
+val test29 = true : bool
+val test30 = true : bool
+val test31 = true : bool
+val test32 = true : bool
+val test33 = true : bool
+val test34 = true : bool
+val test35 = true : bool
+val test36 = true : bool
+val test37 = true : bool
+val test38 = true : bool
+val test39 = true : bool
+val test40 = true : bool
+val test41 = true : bool
+val test42 = true : bool
+val test43 = true : bool
+val test44 = true : bool
+val test45 = true : bool
+val test46 = true : bool
+val test47 = true : bool
+val test48 = true : bool
+val test49 = true : bool
+val test50 = true : bool
+val test51 = true : bool
+val test52 = true : bool
+val test53 = true : bool
+val test54 = true : bool
+val test55 = true : bool
+val test56 = true : bool
+val test57 = true : bool
+val test58 = true : bool
+val test59 = true : bool
+val test60 = true : bool
+val test61 = true : bool
+val test62 = true : bool
+val test63 = true : bool
+val test64 = true : bool
+val test65 = true : bool
+val test66 = true : bool
+val test67 = true : bool
+val test68 = true : bool
+val test69 = true : bool
+val test70 = true : bool
+val test71 = true : bool
+val test72 = true : bool
+val test73 = true : bool
+val test74 = true : bool
+val test75 = true : bool
+val test76 = true : bool
+val test77 = true : bool
+val test78 = true : bool
+val test79 = true : bool
+val test80 = true : bool
+val test81 = true : bool
+val test82 = true : bool
+val test83 = true : bool
+val test84 = true : bool
+val test85 = true : bool
+val test86 = true : bool
+val test87 = true : bool
+val test88 = true : bool
+val test89 = true : bool
+val test90 = true : bool
+val test91 = true : bool
+val test92 = true : bool
+val test93 = true : bool
+val test94 = true : bool
+val test95 = true : bool
+val test96 = true : bool
+val test97 = true : bool
+val test98 = true : bool
+val test99 = true : bool
+val test100 = true : bool
+val test101 = true : bool
+val test102 = true : bool
+val test103 = true : bool
+val test104 = true : bool
+val test105 = true : bool
+val test106 = true : bool
+val it = () : unit
+- 
+
+Process sml finished
+Standard ML of New Jersey v110.79 [built: Sat Oct 26 12:27:04 2019]
+- use "extra_practice.sml";
+[opening extra_practice.sml]
+extra_practice.sml:224.1 Error: syntax error found at EOF
+
+uncaught exception Compile [Compile: "syntax error"]
+  raised at: ../compiler/Parse/main/smlfile.sml:15.24-15.46
+             ../compiler/TopLevel/interact/evalloop.sml:44.55
+             ../compiler/TopLevel/interact/evalloop.sml:292.17-292.20
+- 
+
+Process sml finished
+Standard ML of New Jersey v110.79 [built: Sat Oct 26 12:27:04 2019]
+- use "extra_tests.sml";
+[opening extra_tests.sml]
+extra_tests.sml:1.19-1.28 Error: unbound variable or constructor: alternate
+extra_tests.sml:2.18-2.27 Error: unbound variable or constructor: alternate
+extra_tests.sml:3.17-3.24 Error: unbound variable or constructor: min_max
+extra_tests.sml:4.16-4.23 Error: unbound variable or constructor: min_max
+extra_tests.sml:5.16-5.23 Error: unbound variable or constructor: min_max
+extra_tests.sml:6.16-6.23 Error: unbound variable or constructor: min_max
+extra_tests.sml:7.16-7.23 Error: unbound variable or constructor: min_max
+extra_tests.sml:8.16-8.23 Error: unbound variable or constructor: min_max
+extra_tests.sml:9.15-9.21 Error: unbound variable or constructor: cumsum
+extra_tests.sml:10.15-10.21 Error: unbound variable or constructor: cumsum
+extra_tests.sml:11.15-11.21 Error: unbound variable or constructor: cumsum
+extra_tests.sml:12.17-12.25 Error: unbound variable or constructor: greeting
+extra_tests.sml:13.17-13.25 Error: unbound variable or constructor: greeting
+extra_tests.sml:14.17-14.25 Error: unbound variable or constructor: greeting
+extra_tests.sml:15.15-15.21 Error: unbound variable or constructor: repeat
+extra_tests.sml:16.15-16.21 Error: unbound variable or constructor: repeat
+extra_tests.sml:17.15-17.21 Error: unbound variable or constructor: repeat
+extra_tests.sml:18.15-18.21 Error: unbound variable or constructor: repeat
+extra_tests.sml:19.15-19.21 Error: unbound variable or constructor: repeat
+extra_tests.sml:20.15-20.21 Error: unbound variable or constructor: repeat
+extra_tests.sml:21.15-21.21 Error: unbound variable or constructor: repeat
+extra_tests.sml:22.15-22.21 Error: unbound variable or constructor: repeat
+extra_tests.sml:23.15-23.21 Error: unbound variable or constructor: addOpt
+extra_tests.sml:24.15-24.21 Error: unbound variable or constructor: addOpt
+extra_tests.sml:25.15-25.21 Error: unbound variable or constructor: addOpt
+extra_tests.sml:26.15-26.21 Error: unbound variable or constructor: addOpt
+extra_tests.sml:27.15-27.21 Error: unbound variable or constructor: addOpt
+extra_tests.sml:28.15-28.21 Error: unbound variable or constructor: addOpt
+extra_tests.sml:29.18-29.27 Error: unbound variable or constructor: addAllOpt
+extra_tests.sml:30.18-30.27 Error: unbound variable or constructor: addAllOpt
+extra_tests.sml:31.18-31.27 Error: unbound variable or constructor: addAllOpt
+extra_tests.sml:32.18-32.27 Error: unbound variable or constructor: addAllOpt
+extra_tests.sml:33.12-33.15 Error: unbound variable or constructor: any
+extra_tests.sml:34.12-34.15 Error: unbound variable or constructor: any
+extra_tests.sml:35.12-35.15 Error: unbound variable or constructor: any
+extra_tests.sml:36.12-36.15 Error: unbound variable or constructor: any
+extra_tests.sml:37.12-37.15 Error: unbound variable or constructor: any
+extra_tests.sml:38.12-38.15 Error: unbound variable or constructor: any
+extra_tests.sml:39.12-39.15 Error: unbound variable or constructor: all
+extra_tests.sml:40.12-40.15 Error: unbound variable or constructor: all
+extra_tests.sml:41.12-41.15 Error: unbound variable or constructor: all
+extra_tests.sml:42.12-42.15 Error: unbound variable or constructor: all
+extra_tests.sml:43.12-43.15 Error: unbound variable or constructor: all
+extra_tests.sml:44.12-44.15 Error: unbound variable or constructor: all
+extra_tests.sml:45.12-45.15 Error: unbound variable or constructor: zip
+extra_tests.sml:46.12-46.15 Error: unbound variable or constructor: zip
+extra_tests.sml:47.12-47.15 Error: unbound variable or constructor: zip
+extra_tests.sml:48.12-48.15 Error: unbound variable or constructor: zip
+extra_tests.sml:49.12-49.15 Error: unbound variable or constructor: zip
+extra_tests.sml:50.12-50.15 Error: unbound variable or constructor: zip
+extra_tests.sml:51.16-51.26 Error: unbound variable or constructor: zipRecycle
+extra_tests.sml:52.16-52.26 Error: unbound variable or constructor: zipRecycle
+extra_tests.sml:53.16-53.26 Error: unbound variable or constructor: zipRecycle
+extra_tests.sml:54.16-54.26 Error: unbound variable or constructor: zipRecycle
+extra_tests.sml:55.16-55.26 Error: unbound variable or constructor: zipRecycle
+extra_tests.sml:56.16-56.26 Error: unbound variable or constructor: zipRecycle
+extra_tests.sml:57.16-57.26 Error: unbound variable or constructor: zipRecycle
+extra_tests.sml:58.15-58.21 Error: unbound variable or constructor: zipOpt
+extra_tests.sml:59.15-59.21 Error: unbound variable or constructor: zipOpt
+extra_tests.sml:60.15-60.21 Error: unbound variable or constructor: zipOpt
+extra_tests.sml:61.15-61.21 Error: unbound variable or constructor: zipOpt
+extra_tests.sml:62.15-62.21 Error: unbound variable or constructor: zipOpt
+extra_tests.sml:63.15-63.21 Error: unbound variable or constructor: zipOpt
+extra_tests.sml:64.15-64.21 Error: unbound variable or constructor: lookup
+extra_tests.sml:65.15-65.21 Error: unbound variable or constructor: lookup
+extra_tests.sml:66.15-66.21 Error: unbound variable or constructor: lookup
+extra_tests.sml:67.15-67.21 Error: unbound variable or constructor: lookup
+extra_tests.sml:68.15-68.21 Error: unbound variable or constructor: lookup
+extra_tests.sml:69.16-69.23 Error: unbound variable or constructor: splitup
+extra_tests.sml:70.16-70.23 Error: unbound variable or constructor: splitup
+extra_tests.sml:71.16-71.23 Error: unbound variable or constructor: splitup
+extra_tests.sml:72.16-72.23 Error: unbound variable or constructor: splitup
+extra_tests.sml:73.16-73.23 Error: unbound variable or constructor: splitup
+extra_tests.sml:74.16-74.23 Error: unbound variable or constructor: splitup
+extra_tests.sml:75.16-75.23 Error: unbound variable or constructor: splitAt
+extra_tests.sml:76.16-76.23 Error: unbound variable or constructor: splitAt
+extra_tests.sml:77.16-77.23 Error: unbound variable or constructor: splitAt
+extra_tests.sml:78.16-78.23 Error: unbound variable or constructor: splitAt
+extra_tests.sml:79.16-79.23 Error: unbound variable or constructor: splitAt
+extra_tests.sml:80.16-80.23 Error: unbound variable or constructor: splitAt
+extra_tests.sml:81.17-81.25 Error: unbound variable or constructor: isSorted
+extra_tests.sml:82.17-82.25 Error: unbound variable or constructor: isSorted
+extra_tests.sml:83.17-83.25 Error: unbound variable or constructor: isSorted
+extra_tests.sml:84.17-84.25 Error: unbound variable or constructor: isSorted
+extra_tests.sml:85.17-85.25 Error: unbound variable or constructor: isSorted
+extra_tests.sml:86.20-86.31 Error: unbound variable or constructor: isAnySorted
+extra_tests.sml:87.20-87.31 Error: unbound variable or constructor: isAnySorted
+extra_tests.sml:88.20-88.31 Error: unbound variable or constructor: isAnySorted
+extra_tests.sml:89.20-89.31 Error: unbound variable or constructor: isAnySorted
+extra_tests.sml:90.20-90.31 Error: unbound variable or constructor: isAnySorted
+extra_tests.sml:91.20-91.31 Error: unbound variable or constructor: isAnySorted
+extra_tests.sml:92.20-92.31 Error: unbound variable or constructor: isAnySorted
+extra_tests.sml:93.20-93.31 Error: unbound variable or constructor: sortedMerge
+extra_tests.sml:94.20-94.31 Error: unbound variable or constructor: sortedMerge
+extra_tests.sml:95.20-95.31 Error: unbound variable or constructor: sortedMerge
+extra_tests.sml:96.20-96.31 Error: unbound variable or constructor: sortedMerge
+extra_tests.sml:97.20-97.31 Error: unbound variable or constructor: sortedMerge
+extra_tests.sml:98.20-98.31 Error: unbound variable or constructor: sortedMerge
+extra_tests.sml:99.20-99.31 Error: unbound variable or constructor: sortedMerge
+extra_tests.sml:100.14-100.19 Error: unbound variable or constructor: qsort
+extra_tests.sml:101.14-101.19 Error: unbound variable or constructor: qsort
+extra_tests.sml:102.14-102.19 Error: unbound variable or constructor: qsort
+extra_tests.sml:103.14-103.19 Error: unbound variable or constructor: qsort
+extra_tests.sml:104.14-104.19 Error: unbound variable or constructor: qsort
+extra_tests.sml:105.14-105.19 Error: unbound variable or constructor: qsort
+extra_tests.sml:106.14-106.19 Error: unbound variable or constructor: qsort
+extra_tests.sml:107.15-107.21 Error: unbound variable or constructor: divide
+
+uncaught exception Error
+  raised at: ../compiler/TopLevel/interact/evalloop.sml:66.19-66.27
+             ../compiler/TopLevel/interact/evalloop.sml:44.55
+             ../compiler/TopLevel/interact/evalloop.sml:292.17-292.20
+- use "extra_practice.sml";
+[opening extra_practice.sml]
+extra_practice.sml:221.27-221.30 Error: unbound variable or constructor: ::#
+extra_practice.sml:224.23 Error: expression or pattern begins with infix identifier "-"
+extra_practice.sml:221.20-221.37 Error: operator is not a function [tycon mismatch]
+  operator: int
+  in expression:
+    (hd nums) <errorvar>
+extra_practice.sml:224.16-224.26 Error: operator and operand don't agree [overload conflict]
+  operator domain: [- ty] * [- ty]
+  operand:         [int ty]
+  in expression:
+    - 1
+
+uncaught exception Error
+  raised at: ../compiler/TopLevel/interact/evalloop.sml:66.19-66.27
+             ../compiler/TopLevel/interact/evalloop.sml:44.55
+             ../compiler/TopLevel/interact/evalloop.sml:292.17-292.20
+- ppppppp
+= 
+= 
+= 
+= 
+= ;
+stdIn:1.2-1.9 Error: unbound variable or constructor: ppppppp
+- ;;
+- 
+- 
+
+Process sml finished
+Standard ML of New Jersey v110.79 [built: Sat Oct 26 12:27:04 2019]
+- use "extra_practice.sml"
+= ;
+[opening extra_practice.sml]
+extra_practice.sml:221.27-221.30 Error: unbound variable or constructor: ::#
+extra_practice.sml:224.23 Error: expression or pattern begins with infix identifier "-"
+extra_practice.sml:221.20-221.37 Error: operator is not a function [tycon mismatch]
+  operator: int
+  in expression:
+    (hd nums) <errorvar>
+extra_practice.sml:224.16-224.26 Error: operator and operand don't agree [overload conflict]
+  operator domain: [- ty] * [- ty]
+  operand:         [int ty]
+  in expression:
+    - 1
+
+uncaught exception Error
+  raised at: ../compiler/TopLevel/interact/evalloop.sml:66.19-66.27
+             ../compiler/TopLevel/interact/evalloop.sml:44.55
+             ../compiler/TopLevel/interact/evalloop.sml:292.17-292.20
+- 
+- 
+- 
+
+Process sml finished
+Standard ML of New Jersey v110.79 [built: Sat Oct 26 12:27:04 2019]
+- use "extra_practice.sml"
+= ;
+[opening extra_practice.sml]
+extra_practice.sml:221.20 Error: syntax error: inserting  RPAREN
+
+uncaught exception Compile [Compile: "syntax error"]
+  raised at: ../compiler/Parse/main/smlfile.sml:15.24-15.46
+             ../compiler/TopLevel/interact/evalloop.sml:44.55
+             ../compiler/TopLevel/interact/evalloop.sml:292.17-292.20
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+
+Process sml finished
+Standard ML of New Jersey v110.79 [built: Sat Oct 26 12:27:04 2019]
+- use "extra_practice.sml";
+[opening extra_practice.sml]
+extra_practice.sml:224.23 Error: expression or pattern begins with infix identifier "-"
+extra_practice.sml:224.16-224.26 Error: operator and operand don't agree [overload conflict]
+  operator domain: [- ty] * [- ty]
+  operand:         [int ty]
+  in expression:
+    - 1
+
+uncaught exception Error
+  raised at: ../compiler/TopLevel/interact/evalloop.sml:66.19-66.27
+             ../compiler/TopLevel/interact/evalloop.sml:44.55
+             ../compiler/TopLevel/interact/evalloop.sml:292.17-292.20
+- use "extra_practice.sml";
+[opening extra_practice.sml]
+val alternate = fn : int list -> int
+val min_max = fn : int list -> (int * int) option
+val cumsum = fn : int list -> int list
+val greeting = fn : string option -> string
+val repeat = fn : int list * int list -> int list
+val addOpt = fn : int option * int option -> int option
+val addAllOpt = fn : int option list -> int option
+val any = fn : bool list -> bool
+val all = fn : bool list -> bool
+val zip = fn : int list * int list -> (int * int) list
+val zipRecycle = fn : int list * int list -> (int * int) list
+val zipOpt = fn : int list * int list -> (int * int) list option
+val lookup = fn : (string * int) list * string -> int option
+val splitup = fn : int list -> int list * int list
+val splitAt = fn : int list * int -> int list * int list
+val isSorted = fn : int list -> bool
+val isAnySorted = fn : int list -> bool
+val sortedMerge = fn : int list * int list -> int list
+val qsort = fn : int list -> int list
+val divide = fn : int list -> int list * int list
+val it = () : unit
+- use "extra_tests.sml";
+[opening extra_tests.sml]
+val alternate1 = ~2 : int
+val alternate2 = 3 : int
+val min_max_e = NONE : (int * int) option
+val min_max1 = SOME (1,5) : (int * int) option
+val min_max2 = SOME (1,5) : (int * int) option
+val min_max3 = SOME (1,5) : (int * int) option
+val min_max4 = SOME (1,1) : (int * int) option
+val min_max5 = SOME (5,5) : (int * int) option
+val cumsum1 = [0] : int list
+val cumsum2 = [3] : int list
+val cumsum3 = [1,5,25] : int list
+val greeting1 = "Hello there, you!" : string
+val greeting2 = "Hello there, you!" : string
+val greeting3 = "Hello there, Kike!" : string
+val repeat1 = [] : int list
+val repeat2 = [] : int list
+val repeat3 = [1,2,3] : int list
+val repeat4 = [] : int list
+val repeat5 = [1,1,1,2,3] : int list
+val repeat6 = [1,1,1,2,2,3] : int list
+val repeat7 = [1,1,1,3] : int list
+val repeat8 = [1,1,1,1,3,3,3] : int list
+val addOpt1 = NONE : int option
+val addOpt2 = NONE : int option
+val addOpt3 = NONE : int option
+val addOpt4 = SOME 8 : int option
+val addOpt5 = SOME 3 : int option
+val addOpt6 = SOME 0 : int option
+val addAllOpt1 = NONE : int option
+val addAllOpt2 = NONE : int option
+val addAllOpt3 = SOME 2 : int option
+val addAllOpt4 = SOME 10 : int option
+val any1 = false : bool
+val any2 = true : bool
+val any3 = true : bool
+val any4 = true : bool
+val any5 = true : bool
+val any6 = false : bool
+val all1 = true : bool
+val all2 = true : bool
+val all3 = false : bool
+val all4 = false : bool
+val all5 = false : bool
+val all6 = false : bool
+val zip1 = [] : (int * int) list
+val zip2 = [] : (int * int) list
+val zip3 = [] : (int * int) list
+val zip4 = [(1,4),(2,5),(3,6)] : (int * int) list
+val zip5 = [(1,4),(2,5)] : (int * int) list
+val zip6 = [(1,4),(2,5)] : (int * int) list
+val recycle1 = [] : (int * int) list
+val recycle2 = [] : (int * int) list
+val recycle3 = [] : (int * int) list
+val recycle4 = [(1,4),(2,5),(3,6)] : (int * int) list
+val recycle5 = [(1,4),(2,5),(3,4)] : (int * int) list
+val recycle6 = [(1,4),(2,5),(1,6)] : (int * int) list
+val recycle7 = [(1,1),(2,2),(3,3),(1,4),(2,5),(3,6),(1,7)] : (int * int) list
+val zipOpt1 = SOME [] : (int * int) list option
+val zipOpt2 = NONE : (int * int) list option
+val zipOpt3 = NONE : (int * int) list option
+val zipOpt4 = NONE : (int * int) list option
+val zipOpt5 = NONE : (int * int) list option
+val zipOpt6 = SOME [(1,4),(2,5),(3,6)] : (int * int) list option
+val lookup1 = NONE : int option
+val lookup2 = NONE : int option
+val lookup3 = SOME 1 : int option
+val lookup4 = SOME 2 : int option
+val lookup5 = SOME 3 : int option
+val splitup1 = ([],[]) : int list * int list
+val splitup2 = ([1,2,3],[]) : int list * int list
+val splitup3 = ([],[~1,~2,~3]) : int list * int list
+val splitup4 = ([1,2,3],[~4,~5,~6]) : int list * int list
+val splitup5 = ([1,2,3],[~4,~5,~6]) : int list * int list
+val splitup6 = ([1,3,2],[~5,~4,~6]) : int list * int list
+val splitAt1 = ([],[]) : int list * int list
+val splitAt2 = ([1,2,3],[]) : int list * int list
+val splitAt3 = ([],[~1,~2,~3]) : int list * int list
+val splitAt4 = ([1,2,3],[~4,~5,~6]) : int list * int list
+val splitAt5 = ([1,2,3],[~4,~5,~6]) : int list * int list
+val splitAt6 = ([1,3,2],[~5,~4,~6]) : int list * int list
+val isSorted1 = true : bool
+val isSorted2 = true : bool
+val isSorted3 = true : bool
+val isSorted4 = true : bool
+val isSorted5 = false : bool
+val isAnySorted1 = true : bool
+val isAnySorted2 = true : bool
+val isAnySorted3 = true : bool
+val isAnySorted4 = true : bool
+val isAnySorted5 = true : bool
+val isAnySorted6 = true : bool
+val isAnySorted7 = false : bool
+val sortedMerge1 = [] : int list
+val sortedMerge2 = [1,2,3] : int list
+val sortedMerge3 = [1,2,3] : int list
+val sortedMerge4 = [1,2,3,4,5,6] : int list
+val sortedMerge5 = [1,2,4,5,6] : int list
+val sortedMerge6 = [1,2,3,4,6] : int list
+val sortedMerge7 = [1,4,5,7,8,9] : int list
+val qsort1 = [] : int list
+val qsort2 = [1] : int list
+val qsort3 = [1,2] : int list
+val qsort4 = [1,2,3] : int list
+val qsort5 = [1,2,3,4,5,6] : int list
+val qsort6 = [1,2,2,3,4,4] : int list
+val qsort7 = [1,2,2,3,4,4,5,5,6,6,7,8,...] : int list
+val divide1 = ([],[]) : int list * int list
+val test1 = true : bool
+val test2 = true : bool
+val test3 = true : bool
+val test4 = true : bool
+val test5 = true : bool
+val test6 = true : bool
+val test7 = true : bool
+val test8 = true : bool
+val test9 = true : bool
+val test10 = true : bool
+val test11 = true : bool
+val test12 = true : bool
+val test13 = true : bool
+val test14 = true : bool
+val test15 = true : bool
+val test16 = true : bool
+val test17 = true : bool
+val test18 = true : bool
+val test19 = true : bool
+val test20 = true : bool
+val test21 = true : bool
+val test22 = true : bool
+val test23 = true : bool
+val test24 = true : bool
+val test25 = true : bool
+val test26 = true : bool
+val test27 = true : bool
+val test28 = true : bool
+val test29 = true : bool
+val test30 = true : bool
+val test31 = true : bool
+val test32 = true : bool
+val test33 = true : bool
+val test34 = true : bool
+val test35 = true : bool
+val test36 = true : bool
+val test37 = true : bool
+val test38 = true : bool
+val test39 = true : bool
+val test40 = true : bool
+val test41 = true : bool
+val test42 = true : bool
+val test43 = true : bool
+val test44 = true : bool
+val test45 = true : bool
+val test46 = true : bool
+val test47 = true : bool
+val test48 = true : bool
+val test49 = true : bool
+val test50 = true : bool
+val test51 = true : bool
+val test52 = true : bool
+val test53 = true : bool
+val test54 = true : bool
+val test55 = true : bool
+val test56 = true : bool
+val test57 = true : bool
+val test58 = true : bool
+val test59 = true : bool
+val test60 = true : bool
+val test61 = true : bool
+val test62 = true : bool
+val test63 = true : bool
+val test64 = true : bool
+val test65 = true : bool
+val test66 = true : bool
+val test67 = true : bool
+val test68 = true : bool
+val test69 = true : bool
+val test70 = true : bool
+val test71 = true : bool
+val test72 = true : bool
+val test73 = true : bool
+val test74 = true : bool
+val test75 = true : bool
+val test76 = true : bool
+val test77 = true : bool
+val test78 = true : bool
+val test79 = true : bool
+val test80 = true : bool
+val test81 = true : bool
+val test82 = true : bool
+val test83 = true : bool
+val test84 = true : bool
+val test85 = true : bool
+val test86 = true : bool
+val test87 = true : bool
+val test88 = true : bool
+val test89 = true : bool
+val test90 = true : bool
+val test91 = true : bool
+val test92 = true : bool
+val test93 = true : bool
+val test94 = true : bool
+val test95 = true : bool
+val test96 = true : bool
+val test97 = true : bool
+val test98 = true : bool
+val test99 = true : bool
+val test100 = true : bool
+val test101 = true : bool
+val test102 = true : bool
+val test103 = true : bool
+val test104 = true : bool
+val test105 = true : bool
+val test106 = true : bool
+val test107 = true : bool
+val it = () : unit
+- 
+
+Process sml finished
+Standard ML of New Jersey v110.79 [built: Sat Oct 26 12:27:04 2019]
+- use "extra_practice.sml";
+[opening extra_practice.sml]
+val alternate = fn : int list -> int
+val min_max = fn : int list -> (int * int) option
+val cumsum = fn : int list -> int list
+val greeting = fn : string option -> string
+val repeat = fn : int list * int list -> int list
+val addOpt = fn : int option * int option -> int option
+val addAllOpt = fn : int option list -> int option
+val any = fn : bool list -> bool
+val all = fn : bool list -> bool
+val zip = fn : int list * int list -> (int * int) list
+val zipRecycle = fn : int list * int list -> (int * int) list
+val zipOpt = fn : int list * int list -> (int * int) list option
+val lookup = fn : (string * int) list * string -> int option
+val splitup = fn : int list -> int list * int list
+val splitAt = fn : int list * int -> int list * int list
+val isSorted = fn : int list -> bool
+val isAnySorted = fn : int list -> bool
+val sortedMerge = fn : int list * int list -> int list
+val qsort = fn : int list -> int list
+val divide = fn : int list -> int list * int list
+val it = () : unit
+- use "extra_tests.sml";
+[opening extra_tests.sml]
+val alternate1 = ~2 : int
+val alternate2 = 3 : int
+val min_max_e = NONE : (int * int) option
+val min_max1 = SOME (1,5) : (int * int) option
+val min_max2 = SOME (1,5) : (int * int) option
+val min_max3 = SOME (1,5) : (int * int) option
+val min_max4 = SOME (1,1) : (int * int) option
+val min_max5 = SOME (5,5) : (int * int) option
+val cumsum1 = [0] : int list
+val cumsum2 = [3] : int list
+val cumsum3 = [1,5,25] : int list
+val greeting1 = "Hello there, you!" : string
+val greeting2 = "Hello there, you!" : string
+val greeting3 = "Hello there, Kike!" : string
+val repeat1 = [] : int list
+val repeat2 = [] : int list
+val repeat3 = [1,2,3] : int list
+val repeat4 = [] : int list
+val repeat5 = [1,1,1,2,3] : int list
+val repeat6 = [1,1,1,2,2,3] : int list
+val repeat7 = [1,1,1,3] : int list
+val repeat8 = [1,1,1,1,3,3,3] : int list
+val addOpt1 = NONE : int option
+val addOpt2 = NONE : int option
+val addOpt3 = NONE : int option
+val addOpt4 = SOME 8 : int option
+val addOpt5 = SOME 3 : int option
+val addOpt6 = SOME 0 : int option
+val addAllOpt1 = NONE : int option
+val addAllOpt2 = NONE : int option
+val addAllOpt3 = SOME 2 : int option
+val addAllOpt4 = SOME 10 : int option
+val any1 = false : bool
+val any2 = true : bool
+val any3 = true : bool
+val any4 = true : bool
+val any5 = true : bool
+val any6 = false : bool
+val all1 = true : bool
+val all2 = true : bool
+val all3 = false : bool
+val all4 = false : bool
+val all5 = false : bool
+val all6 = false : bool
+val zip1 = [] : (int * int) list
+val zip2 = [] : (int * int) list
+val zip3 = [] : (int * int) list
+val zip4 = [(1,4),(2,5),(3,6)] : (int * int) list
+val zip5 = [(1,4),(2,5)] : (int * int) list
+val zip6 = [(1,4),(2,5)] : (int * int) list
+val recycle1 = [] : (int * int) list
+val recycle2 = [] : (int * int) list
+val recycle3 = [] : (int * int) list
+val recycle4 = [(1,4),(2,5),(3,6)] : (int * int) list
+val recycle5 = [(1,4),(2,5),(3,4)] : (int * int) list
+val recycle6 = [(1,4),(2,5),(1,6)] : (int * int) list
+val recycle7 = [(1,1),(2,2),(3,3),(1,4),(2,5),(3,6),(1,7)] : (int * int) list
+val zipOpt1 = SOME [] : (int * int) list option
+val zipOpt2 = NONE : (int * int) list option
+val zipOpt3 = NONE : (int * int) list option
+val zipOpt4 = NONE : (int * int) list option
+val zipOpt5 = NONE : (int * int) list option
+val zipOpt6 = SOME [(1,4),(2,5),(3,6)] : (int * int) list option
+val lookup1 = NONE : int option
+val lookup2 = NONE : int option
+val lookup3 = SOME 1 : int option
+val lookup4 = SOME 2 : int option
+val lookup5 = SOME 3 : int option
+val splitup1 = ([],[]) : int list * int list
+val splitup2 = ([1,2,3],[]) : int list * int list
+val splitup3 = ([],[~1,~2,~3]) : int list * int list
+val splitup4 = ([1,2,3],[~4,~5,~6]) : int list * int list
+val splitup5 = ([1,2,3],[~4,~5,~6]) : int list * int list
+val splitup6 = ([1,3,2],[~5,~4,~6]) : int list * int list
+val splitAt1 = ([],[]) : int list * int list
+val splitAt2 = ([1,2,3],[]) : int list * int list
+val splitAt3 = ([],[~1,~2,~3]) : int list * int list
+val splitAt4 = ([1,2,3],[~4,~5,~6]) : int list * int list
+val splitAt5 = ([1,2,3],[~4,~5,~6]) : int list * int list
+val splitAt6 = ([1,3,2],[~5,~4,~6]) : int list * int list
+val isSorted1 = true : bool
+val isSorted2 = true : bool
+val isSorted3 = true : bool
+val isSorted4 = true : bool
+val isSorted5 = false : bool
+val isAnySorted1 = true : bool
+val isAnySorted2 = true : bool
+val isAnySorted3 = true : bool
+val isAnySorted4 = true : bool
+val isAnySorted5 = true : bool
+val isAnySorted6 = true : bool
+val isAnySorted7 = false : bool
+val sortedMerge1 = [] : int list
+val sortedMerge2 = [1,2,3] : int list
+val sortedMerge3 = [1,2,3] : int list
+val sortedMerge4 = [1,2,3,4,5,6] : int list
+val sortedMerge5 = [1,2,4,5,6] : int list
+val sortedMerge6 = [1,2,3,4,6] : int list
+val sortedMerge7 = [1,4,5,7,8,9] : int list
+val qsort1 = [] : int list
+val qsort2 = [1] : int list
+val qsort3 = [1,2] : int list
+val qsort4 = [1,2,3] : int list
+val qsort5 = [1,2,3,4,5,6] : int list
+val qsort6 = [1,2,2,3,4,4] : int list
+val qsort7 = [1,2,2,3,4,4,5,5,6,6,7,8,...] : int list
+val divide1 = ([],[]) : int list * int list
+val divide2 = ([],[1]) : int list * int list
+val divide3 = ([],[1,2,3,4]) : int list * int list
+val divide4 = ([],[1,2,3]) : int list * int list
+val divide5 = ([],[1,2,3,4,5,6,7]) : int list * int list
+val test1 = true : bool
+val test2 = true : bool
+val test3 = true : bool
+val test4 = true : bool
+val test5 = true : bool
+val test6 = true : bool
+val test7 = true : bool
+val test8 = true : bool
+val test9 = true : bool
+val test10 = true : bool
+val test11 = true : bool
+val test12 = true : bool
+val test13 = true : bool
+val test14 = true : bool
+val test15 = true : bool
+val test16 = true : bool
+val test17 = true : bool
+val test18 = true : bool
+val test19 = true : bool
+val test20 = true : bool
+val test21 = true : bool
+val test22 = true : bool
+val test23 = true : bool
+val test24 = true : bool
+val test25 = true : bool
+val test26 = true : bool
+val test27 = true : bool
+val test28 = true : bool
+val test29 = true : bool
+val test30 = true : bool
+val test31 = true : bool
+val test32 = true : bool
+val test33 = true : bool
+val test34 = true : bool
+val test35 = true : bool
+val test36 = true : bool
+val test37 = true : bool
+val test38 = true : bool
+val test39 = true : bool
+val test40 = true : bool
+val test41 = true : bool
+val test42 = true : bool
+val test43 = true : bool
+val test44 = true : bool
+val test45 = true : bool
+val test46 = true : bool
+val test47 = true : bool
+val test48 = true : bool
+val test49 = true : bool
+val test50 = true : bool
+val test51 = true : bool
+val test52 = true : bool
+val test53 = true : bool
+val test54 = true : bool
+val test55 = true : bool
+val test56 = true : bool
+val test57 = true : bool
+val test58 = true : bool
+val test59 = true : bool
+val test60 = true : bool
+val test61 = true : bool
+val test62 = true : bool
+val test63 = true : bool
+val test64 = true : bool
+val test65 = true : bool
+val test66 = true : bool
+val test67 = true : bool
+val test68 = true : bool
+val test69 = true : bool
+val test70 = true : bool
+val test71 = true : bool
+val test72 = true : bool
+val test73 = true : bool
+val test74 = true : bool
+val test75 = true : bool
+val test76 = true : bool
+val test77 = true : bool
+val test78 = true : bool
+val test79 = true : bool
+val test80 = true : bool
+val test81 = true : bool
+val test82 = true : bool
+val test83 = true : bool
+val test84 = true : bool
+val test85 = true : bool
+val test86 = true : bool
+val test87 = true : bool
+val test88 = true : bool
+val test89 = true : bool
+val test90 = true : bool
+val test91 = true : bool
+val test92 = true : bool
+val test93 = true : bool
+val test94 = true : bool
+val test95 = true : bool
+val test96 = true : bool
+val test97 = true : bool
+val test98 = true : bool
+val test99 = true : bool
+val test100 = true : bool
+val test101 = true : bool
+val test102 = true : bool
+val test103 = true : bool
+val test104 = true : bool
+val test105 = true : bool
+val test106 = true : bool
+val test107 = true : bool
+val test108 = false : bool
+val test109 = false : bool
+val test110 = false : bool
+val test111 = false : bool
+val it = () : unit
+- 1 * 1
+= ;
+val it = 1 : int
+- 1 * ~1;
+val it = ~1 : int
+- val s = ~1;
+val s = ~1 : int
+- s * ~1
+= ;
+val it = 1 : int
+- 
+
+Process sml finished
+Standard ML of New Jersey v110.79 [built: Sat Oct 26 12:27:04 2019]
+- use "extra_practice.sml";
+[opening extra_practice.sml]
+val alternate = fn : int list -> int
+val min_max = fn : int list -> (int * int) option
+val cumsum = fn : int list -> int list
+val greeting = fn : string option -> string
+val repeat = fn : int list * int list -> int list
+val addOpt = fn : int option * int option -> int option
+val addAllOpt = fn : int option list -> int option
+val any = fn : bool list -> bool
+val all = fn : bool list -> bool
+val zip = fn : int list * int list -> (int * int) list
+val zipRecycle = fn : int list * int list -> (int * int) list
+val zipOpt = fn : int list * int list -> (int * int) list option
+val lookup = fn : (string * int) list * string -> int option
+val splitup = fn : int list -> int list * int list
+val splitAt = fn : int list * int -> int list * int list
+val isSorted = fn : int list -> bool
+val isAnySorted = fn : int list -> bool
+val sortedMerge = fn : int list * int list -> int list
+val qsort = fn : int list -> int list
+val divide = fn : int list -> int list * int list
+val it = () : unit
+- use "extra_tests.sml";
+[opening extra_tests.sml]
+val alternate1 = ~2 : int
+val alternate2 = 3 : int
+val min_max_e = NONE : (int * int) option
+val min_max1 = SOME (1,5) : (int * int) option
+val min_max2 = SOME (1,5) : (int * int) option
+val min_max3 = SOME (1,5) : (int * int) option
+val min_max4 = SOME (1,1) : (int * int) option
+val min_max5 = SOME (5,5) : (int * int) option
+val cumsum1 = [0] : int list
+val cumsum2 = [3] : int list
+val cumsum3 = [1,5,25] : int list
+val greeting1 = "Hello there, you!" : string
+val greeting2 = "Hello there, you!" : string
+val greeting3 = "Hello there, Kike!" : string
+val repeat1 = [] : int list
+val repeat2 = [] : int list
+val repeat3 = [1,2,3] : int list
+val repeat4 = [] : int list
+val repeat5 = [1,1,1,2,3] : int list
+val repeat6 = [1,1,1,2,2,3] : int list
+val repeat7 = [1,1,1,3] : int list
+val repeat8 = [1,1,1,1,3,3,3] : int list
+val addOpt1 = NONE : int option
+val addOpt2 = NONE : int option
+val addOpt3 = NONE : int option
+val addOpt4 = SOME 8 : int option
+val addOpt5 = SOME 3 : int option
+val addOpt6 = SOME 0 : int option
+val addAllOpt1 = NONE : int option
+val addAllOpt2 = NONE : int option
+val addAllOpt3 = SOME 2 : int option
+val addAllOpt4 = SOME 10 : int option
+val any1 = false : bool
+val any2 = true : bool
+val any3 = true : bool
+val any4 = true : bool
+val any5 = true : bool
+val any6 = false : bool
+val all1 = true : bool
+val all2 = true : bool
+val all3 = false : bool
+val all4 = false : bool
+val all5 = false : bool
+val all6 = false : bool
+val zip1 = [] : (int * int) list
+val zip2 = [] : (int * int) list
+val zip3 = [] : (int * int) list
+val zip4 = [(1,4),(2,5),(3,6)] : (int * int) list
+val zip5 = [(1,4),(2,5)] : (int * int) list
+val zip6 = [(1,4),(2,5)] : (int * int) list
+val recycle1 = [] : (int * int) list
+val recycle2 = [] : (int * int) list
+val recycle3 = [] : (int * int) list
+val recycle4 = [(1,4),(2,5),(3,6)] : (int * int) list
+val recycle5 = [(1,4),(2,5),(3,4)] : (int * int) list
+val recycle6 = [(1,4),(2,5),(1,6)] : (int * int) list
+val recycle7 = [(1,1),(2,2),(3,3),(1,4),(2,5),(3,6),(1,7)] : (int * int) list
+val zipOpt1 = SOME [] : (int * int) list option
+val zipOpt2 = NONE : (int * int) list option
+val zipOpt3 = NONE : (int * int) list option
+val zipOpt4 = NONE : (int * int) list option
+val zipOpt5 = NONE : (int * int) list option
+val zipOpt6 = SOME [(1,4),(2,5),(3,6)] : (int * int) list option
+val lookup1 = NONE : int option
+val lookup2 = NONE : int option
+val lookup3 = SOME 1 : int option
+val lookup4 = SOME 2 : int option
+val lookup5 = SOME 3 : int option
+val splitup1 = ([],[]) : int list * int list
+val splitup2 = ([1,2,3],[]) : int list * int list
+val splitup3 = ([],[~1,~2,~3]) : int list * int list
+val splitup4 = ([1,2,3],[~4,~5,~6]) : int list * int list
+val splitup5 = ([1,2,3],[~4,~5,~6]) : int list * int list
+val splitup6 = ([1,3,2],[~5,~4,~6]) : int list * int list
+val splitAt1 = ([],[]) : int list * int list
+val splitAt2 = ([1,2,3],[]) : int list * int list
+val splitAt3 = ([],[~1,~2,~3]) : int list * int list
+val splitAt4 = ([1,2,3],[~4,~5,~6]) : int list * int list
+val splitAt5 = ([1,2,3],[~4,~5,~6]) : int list * int list
+val splitAt6 = ([1,3,2],[~5,~4,~6]) : int list * int list
+val isSorted1 = true : bool
+val isSorted2 = true : bool
+val isSorted3 = true : bool
+val isSorted4 = true : bool
+val isSorted5 = false : bool
+val isAnySorted1 = true : bool
+val isAnySorted2 = true : bool
+val isAnySorted3 = true : bool
+val isAnySorted4 = true : bool
+val isAnySorted5 = true : bool
+val isAnySorted6 = true : bool
+val isAnySorted7 = false : bool
+val sortedMerge1 = [] : int list
+val sortedMerge2 = [1,2,3] : int list
+val sortedMerge3 = [1,2,3] : int list
+val sortedMerge4 = [1,2,3,4,5,6] : int list
+val sortedMerge5 = [1,2,4,5,6] : int list
+val sortedMerge6 = [1,2,3,4,6] : int list
+val sortedMerge7 = [1,4,5,7,8,9] : int list
+val qsort1 = [] : int list
+val qsort2 = [1] : int list
+val qsort3 = [1,2] : int list
+val qsort4 = [1,2,3] : int list
+val qsort5 = [1,2,3,4,5,6] : int list
+val qsort6 = [1,2,2,3,4,4] : int list
+val qsort7 = [1,2,2,3,4,4,5,5,6,6,7,8,...] : int list
+val divide1 = ([],[]) : int list * int list
+val divide2 = ([1],[]) : int list * int list
+val divide3 = ([1,3],[2,4]) : int list * int list
+val divide4 = ([1,3],[2]) : int list * int list
+val divide5 = ([1,3,5,7],[2,4,6]) : int list * int list
+val test1 = true : bool
+val test2 = true : bool
+val test3 = true : bool
+val test4 = true : bool
+val test5 = true : bool
+val test6 = true : bool
+val test7 = true : bool
+val test8 = true : bool
+val test9 = true : bool
+val test10 = true : bool
+val test11 = true : bool
+val test12 = true : bool
+val test13 = true : bool
+val test14 = true : bool
+val test15 = true : bool
+val test16 = true : bool
+val test17 = true : bool
+val test18 = true : bool
+val test19 = true : bool
+val test20 = true : bool
+val test21 = true : bool
+val test22 = true : bool
+val test23 = true : bool
+val test24 = true : bool
+val test25 = true : bool
+val test26 = true : bool
+val test27 = true : bool
+val test28 = true : bool
+val test29 = true : bool
+val test30 = true : bool
+val test31 = true : bool
+val test32 = true : bool
+val test33 = true : bool
+val test34 = true : bool
+val test35 = true : bool
+val test36 = true : bool
+val test37 = true : bool
+val test38 = true : bool
+val test39 = true : bool
+val test40 = true : bool
+val test41 = true : bool
+val test42 = true : bool
+val test43 = true : bool
+val test44 = true : bool
+val test45 = true : bool
+val test46 = true : bool
+val test47 = true : bool
+val test48 = true : bool
+val test49 = true : bool
+val test50 = true : bool
+val test51 = true : bool
+val test52 = true : bool
+val test53 = true : bool
+val test54 = true : bool
+val test55 = true : bool
+val test56 = true : bool
+val test57 = true : bool
+val test58 = true : bool
+val test59 = true : bool
+val test60 = true : bool
+val test61 = true : bool
+val test62 = true : bool
+val test63 = true : bool
+val test64 = true : bool
+val test65 = true : bool
+val test66 = true : bool
+val test67 = true : bool
+val test68 = true : bool
+val test69 = true : bool
+val test70 = true : bool
+val test71 = true : bool
+val test72 = true : bool
+val test73 = true : bool
+val test74 = true : bool
+val test75 = true : bool
+val test76 = true : bool
+val test77 = true : bool
+val test78 = true : bool
+val test79 = true : bool
+val test80 = true : bool
+val test81 = true : bool
+val test82 = true : bool
+val test83 = true : bool
+val test84 = true : bool
+val test85 = true : bool
+val test86 = true : bool
+val test87 = true : bool
+val test88 = true : bool
+val test89 = true : bool
+val test90 = true : bool
+val test91 = true : bool
+val test92 = true : bool
+val test93 = true : bool
+val test94 = true : bool
+val test95 = true : bool
+val test96 = true : bool
+val test97 = true : bool
+val test98 = true : bool
+val test99 = true : bool
+val test100 = true : bool
+val test101 = true : bool
+val test102 = true : bool
+val test103 = true : bool
+val test104 = true : bool
+val test105 = true : bool
+val test106 = true : bool
+val test107 = true : bool
+val test108 = true : bool
+val test109 = true : bool
+val test110 = true : bool
+val test111 = true : bool
+val it = () : unit
+- 
+
+Process sml finished
+Standard ML of New Jersey v110.79 [built: Sat Oct 26 12:27:04 2019]
+- use "extra_practice.sml";
+[opening extra_practice.sml]
+extra_practice.sml:238.14 Error: syntax error: inserting  END
+
+uncaught exception Compile [Compile: "syntax error"]
+  raised at: ../compiler/Parse/main/smlfile.sml:15.24-15.46
+             ../compiler/TopLevel/interact/evalloop.sml:44.55
+             ../compiler/TopLevel/interact/evalloop.sml:292.17-292.20
+- use "extra_practice.sml";
+[opening extra_practice.sml]
+extra_practice.sml:245.2-245.11 Error: unbound variable or constructor: sortMerge
+
+uncaught exception Error
+  raised at: ../compiler/TopLevel/interact/evalloop.sml:66.19-66.27
+             ../compiler/TopLevel/interact/evalloop.sml:44.55
+             ../compiler/TopLevel/interact/evalloop.sml:292.17-292.20
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- use "extra_practice.sml";
+[opening extra_practice.sml]
+extra_practice.sml:245.2-245.11 Error: unbound variable or constructor: sortMerge
+
+uncaught exception Error
+  raised at: ../compiler/TopLevel/interact/evalloop.sml:66.19-66.27
+             ../compiler/TopLevel/interact/evalloop.sml:44.55
+             ../compiler/TopLevel/interact/evalloop.sml:292.17-292.20
+- 
+- 
+- 
+- 
+- 
+- 
+- use "extra_practice.sml";
+[opening extra_practice.sml]
+val alternate = fn : int list -> int
+val min_max = fn : int list -> (int * int) option
+val cumsum = fn : int list -> int list
+val greeting = fn : string option -> string
+val repeat = fn : int list * int list -> int list
+val addOpt = fn : int option * int option -> int option
+val addAllOpt = fn : int option list -> int option
+val any = fn : bool list -> bool
+val all = fn : bool list -> bool
+val zip = fn : int list * int list -> (int * int) list
+val zipRecycle = fn : int list * int list -> (int * int) list
+val zipOpt = fn : int list * int list -> (int * int) list option
+val lookup = fn : (string * int) list * string -> int option
+val splitup = fn : int list -> int list * int list
+val splitAt = fn : int list * int -> int list * int list
+val isSorted = fn : int list -> bool
+val isAnySorted = fn : int list -> bool
+val sortedMerge = fn : int list * int list -> int list
+val qsort = fn : int list -> int list
+val divide = fn : int list -> int list * int list
+val not_so_quick_sort = fn : int list -> int list
+val it = () : unit
+- use "extra_tests.sml";
+[opening extra_tests.sml]
+  C-c C-c
+Interrupt
+- 
+
+Process sml finished
+Standard ML of New Jersey v110.79 [built: Sat Oct 26 12:27:04 2019]
+- use "extra_practice.sml";
+[opening extra_practice.sml]
+val alternate = fn : int list -> int
+val min_max = fn : int list -> (int * int) option
+val cumsum = fn : int list -> int list
+val greeting = fn : string option -> string
+val repeat = fn : int list * int list -> int list
+val addOpt = fn : int option * int option -> int option
+val addAllOpt = fn : int option list -> int option
+val any = fn : bool list -> bool
+val all = fn : bool list -> bool
+val zip = fn : int list * int list -> (int * int) list
+val zipRecycle = fn : int list * int list -> (int * int) list
+val zipOpt = fn : int list * int list -> (int * int) list option
+val lookup = fn : (string * int) list * string -> int option
+val splitup = fn : int list -> int list * int list
+val splitAt = fn : int list * int -> int list * int list
+val isSorted = fn : int list -> bool
+val isAnySorted = fn : int list -> bool
+val sortedMerge = fn : int list * int list -> int list
+val qsort = fn : int list -> int list
+val divide = fn : int list -> int list * int list
+val not_so_quick_sort = fn : int list -> int list
+val it = () : unit
+- use "extra_tests.sml";
+[opening extra_tests.sml]
+  C-c C-c
+Interrupt
+- 
+
+Process sml finished
+Standard ML of New Jersey v110.79 [built: Sat Oct 26 12:27:04 2019]
+- use "extra_practice.sml";
+[opening extra_practice.sml]
+val alternate = fn : int list -> int
+val min_max = fn : int list -> (int * int) option
+val cumsum = fn : int list -> int list
+val greeting = fn : string option -> string
+val repeat = fn : int list * int list -> int list
+val addOpt = fn : int option * int option -> int option
+val addAllOpt = fn : int option list -> int option
+val any = fn : bool list -> bool
+val all = fn : bool list -> bool
+val zip = fn : int list * int list -> (int * int) list
+val zipRecycle = fn : int list * int list -> (int * int) list
+val zipOpt = fn : int list * int list -> (int * int) list option
+val lookup = fn : (string * int) list * string -> int option
+val splitup = fn : int list -> int list * int list
+val splitAt = fn : int list * int -> int list * int list
+val isSorted = fn : int list -> bool
+val isAnySorted = fn : int list -> bool
+val sortedMerge = fn : int list * int list -> int list
+val qsort = fn : int list -> int list
+val divide = fn : int list -> int list * int list
+val not_so_quick_sort = fn : int list -> int list
+val it = () : unit
+- use "extra_tests.sml";
+[opening extra_tests.sml]
+  C-c C-c
+Interrupt
+- 
+
+Process sml finished
+Standard ML of New Jersey v110.79 [built: Sat Oct 26 12:27:04 2019]
+- use "extra_practice.sml";
+[opening extra_practice.sml]
+val alternate = fn : int list -> int
+val min_max = fn : int list -> (int * int) option
+val cumsum = fn : int list -> int list
+val greeting = fn : string option -> string
+val repeat = fn : int list * int list -> int list
+val addOpt = fn : int option * int option -> int option
+val addAllOpt = fn : int option list -> int option
+val any = fn : bool list -> bool
+val all = fn : bool list -> bool
+val zip = fn : int list * int list -> (int * int) list
+val zipRecycle = fn : int list * int list -> (int * int) list
+val zipOpt = fn : int list * int list -> (int * int) list option
+val lookup = fn : (string * int) list * string -> int option
+val splitup = fn : int list -> int list * int list
+val splitAt = fn : int list * int -> int list * int list
+val isSorted = fn : int list -> bool
+val isAnySorted = fn : int list -> bool
+val sortedMerge = fn : int list * int list -> int list
+val qsort = fn : int list -> int list
+val divide = fn : int list -> int list * int list
+val not_so_quick_sort = fn : int list -> int list
+val it = () : unit
+- use "extra_tests.sml";
+[opening extra_tests.sml]
+  C-c C-c
+Interrupt
+- 
+
+Process sml finished
+Standard ML of New Jersey v110.79 [built: Sat Oct 26 12:27:04 2019]
+- use "extra_practice.sml";
+[opening extra_practice.sml]
+val alternate = fn : int list -> int
+val min_max = fn : int list -> (int * int) option
+val cumsum = fn : int list -> int list
+val greeting = fn : string option -> string
+val repeat = fn : int list * int list -> int list
+val addOpt = fn : int option * int option -> int option
+val addAllOpt = fn : int option list -> int option
+val any = fn : bool list -> bool
+val all = fn : bool list -> bool
+val zip = fn : int list * int list -> (int * int) list
+val zipRecycle = fn : int list * int list -> (int * int) list
+val zipOpt = fn : int list * int list -> (int * int) list option
+val lookup = fn : (string * int) list * string -> int option
+val splitup = fn : int list -> int list * int list
+val splitAt = fn : int list * int -> int list * int list
+val isSorted = fn : int list -> bool
+val isAnySorted = fn : int list -> bool
+val sortedMerge = fn : int list * int list -> int list
+val qsort = fn : int list -> int list
+val divide = fn : int list -> int list * int list
+val not_so_quick_sort = fn : int list -> int list
+val it = () : unit
+- use "extra_tests.sml";
+[opening extra_tests.sml]
+  C-c C-c
+Interrupt
+- use "extra_practice.sml";
+[opening extra_practice.sml]
+val alternate = fn : int list -> int
+val min_max = fn : int list -> (int * int) option
+val cumsum = fn : int list -> int list
+val greeting = fn : string option -> string
+val repeat = fn : int list * int list -> int list
+val addOpt = fn : int option * int option -> int option
+val addAllOpt = fn : int option list -> int option
+val any = fn : bool list -> bool
+val all = fn : bool list -> bool
+val zip = fn : int list * int list -> (int * int) list
+val zipRecycle = fn : int list * int list -> (int * int) list
+val zipOpt = fn : int list * int list -> (int * int) list option
+val lookup = fn : (string * int) list * string -> int option
+val splitup = fn : int list -> int list * int list
+val splitAt = fn : int list * int -> int list * int list
+val isSorted = fn : int list -> bool
+val isAnySorted = fn : int list -> bool
+val sortedMerge = fn : int list * int list -> int list
+val qsort = fn : int list -> int list
+val divide = fn : int list -> int list * int list
+val not_so_quick_sort = fn : int list -> int list
+val it = () : unit
+- use "extra_tests.sml";
+[opening extra_tests.sml]
+  C-c C-c
+Interrupt
+- 
+
+Process sml finished
+Standard ML of New Jersey v110.79 [built: Sat Oct 26 12:27:04 2019]
+- use "extra_practice.sml";
+[opening extra_practice.sml]
+val alternate = fn : int list -> int
+val min_max = fn : int list -> (int * int) option
+val cumsum = fn : int list -> int list
+val greeting = fn : string option -> string
+val repeat = fn : int list * int list -> int list
+val addOpt = fn : int option * int option -> int option
+val addAllOpt = fn : int option list -> int option
+val any = fn : bool list -> bool
+val all = fn : bool list -> bool
+val zip = fn : int list * int list -> (int * int) list
+val zipRecycle = fn : int list * int list -> (int * int) list
+val zipOpt = fn : int list * int list -> (int * int) list option
+val lookup = fn : (string * int) list * string -> int option
+val splitup = fn : int list -> int list * int list
+val splitAt = fn : int list * int -> int list * int list
+val isSorted = fn : int list -> bool
+val isAnySorted = fn : int list -> bool
+val sortedMerge = fn : int list * int list -> int list
+val qsort = fn : int list -> int list
+val divide = fn : int list -> int list * int list
+val not_so_quick_sort = fn : int list -> int list
+val it = () : unit
+- use "extra_tests.sml";
+[opening extra_tests.sml]
+  C-c C-c
+Interrupt
+- use "extra_tests.sml";
+[opening extra_tests.sml]
+  C-c C-c
+Interrupt
+- 
+- 
+- 
+- 
+- 
+
+Process sml finished
+Standard ML of New Jersey v110.79 [built: Sat Oct 26 12:27:04 2019]
+- use "extra_tests.sml";
+[opening extra_tests.sml]
+extra_tests.sml:1.19-1.28 Error: unbound variable or constructor: alternate
+extra_tests.sml:2.18-2.27 Error: unbound variable or constructor: alternate
+extra_tests.sml:3.17-3.24 Error: unbound variable or constructor: min_max
+extra_tests.sml:4.16-4.23 Error: unbound variable or constructor: min_max
+extra_tests.sml:5.16-5.23 Error: unbound variable or constructor: min_max
+extra_tests.sml:6.16-6.23 Error: unbound variable or constructor: min_max
+extra_tests.sml:7.16-7.23 Error: unbound variable or constructor: min_max
+extra_tests.sml:8.16-8.23 Error: unbound variable or constructor: min_max
+extra_tests.sml:9.15-9.21 Error: unbound variable or constructor: cumsum
+extra_tests.sml:10.15-10.21 Error: unbound variable or constructor: cumsum
+extra_tests.sml:11.15-11.21 Error: unbound variable or constructor: cumsum
+extra_tests.sml:12.17-12.25 Error: unbound variable or constructor: greeting
+extra_tests.sml:13.17-13.25 Error: unbound variable or constructor: greeting
+extra_tests.sml:14.17-14.25 Error: unbound variable or constructor: greeting
+extra_tests.sml:15.15-15.21 Error: unbound variable or constructor: repeat
+extra_tests.sml:16.15-16.21 Error: unbound variable or constructor: repeat
+extra_tests.sml:17.15-17.21 Error: unbound variable or constructor: repeat
+extra_tests.sml:18.15-18.21 Error: unbound variable or constructor: repeat
+extra_tests.sml:19.15-19.21 Error: unbound variable or constructor: repeat
+extra_tests.sml:20.15-20.21 Error: unbound variable or constructor: repeat
+extra_tests.sml:21.15-21.21 Error: unbound variable or constructor: repeat
+extra_tests.sml:22.15-22.21 Error: unbound variable or constructor: repeat
+extra_tests.sml:23.15-23.21 Error: unbound variable or constructor: addOpt
+extra_tests.sml:24.15-24.21 Error: unbound variable or constructor: addOpt
+extra_tests.sml:25.15-25.21 Error: unbound variable or constructor: addOpt
+extra_tests.sml:26.15-26.21 Error: unbound variable or constructor: addOpt
+extra_tests.sml:27.15-27.21 Error: unbound variable or constructor: addOpt
+extra_tests.sml:28.15-28.21 Error: unbound variable or constructor: addOpt
+extra_tests.sml:29.18-29.27 Error: unbound variable or constructor: addAllOpt
+extra_tests.sml:30.18-30.27 Error: unbound variable or constructor: addAllOpt
+extra_tests.sml:31.18-31.27 Error: unbound variable or constructor: addAllOpt
+extra_tests.sml:32.18-32.27 Error: unbound variable or constructor: addAllOpt
+extra_tests.sml:33.12-33.15 Error: unbound variable or constructor: any
+extra_tests.sml:34.12-34.15 Error: unbound variable or constructor: any
+extra_tests.sml:35.12-35.15 Error: unbound variable or constructor: any
+extra_tests.sml:36.12-36.15 Error: unbound variable or constructor: any
+extra_tests.sml:37.12-37.15 Error: unbound variable or constructor: any
+extra_tests.sml:38.12-38.15 Error: unbound variable or constructor: any
+extra_tests.sml:39.12-39.15 Error: unbound variable or constructor: all
+extra_tests.sml:40.12-40.15 Error: unbound variable or constructor: all
+extra_tests.sml:41.12-41.15 Error: unbound variable or constructor: all
+extra_tests.sml:42.12-42.15 Error: unbound variable or constructor: all
+extra_tests.sml:43.12-43.15 Error: unbound variable or constructor: all
+extra_tests.sml:44.12-44.15 Error: unbound variable or constructor: all
+extra_tests.sml:45.12-45.15 Error: unbound variable or constructor: zip
+extra_tests.sml:46.12-46.15 Error: unbound variable or constructor: zip
+extra_tests.sml:47.12-47.15 Error: unbound variable or constructor: zip
+extra_tests.sml:48.12-48.15 Error: unbound variable or constructor: zip
+extra_tests.sml:49.12-49.15 Error: unbound variable or constructor: zip
+extra_tests.sml:50.12-50.15 Error: unbound variable or constructor: zip
+extra_tests.sml:51.16-51.26 Error: unbound variable or constructor: zipRecycle
+extra_tests.sml:52.16-52.26 Error: unbound variable or constructor: zipRecycle
+extra_tests.sml:53.16-53.26 Error: unbound variable or constructor: zipRecycle
+extra_tests.sml:54.16-54.26 Error: unbound variable or constructor: zipRecycle
+extra_tests.sml:55.16-55.26 Error: unbound variable or constructor: zipRecycle
+extra_tests.sml:56.16-56.26 Error: unbound variable or constructor: zipRecycle
+extra_tests.sml:57.16-57.26 Error: unbound variable or constructor: zipRecycle
+extra_tests.sml:58.15-58.21 Error: unbound variable or constructor: zipOpt
+extra_tests.sml:59.15-59.21 Error: unbound variable or constructor: zipOpt
+extra_tests.sml:60.15-60.21 Error: unbound variable or constructor: zipOpt
+extra_tests.sml:61.15-61.21 Error: unbound variable or constructor: zipOpt
+extra_tests.sml:62.15-62.21 Error: unbound variable or constructor: zipOpt
+extra_tests.sml:63.15-63.21 Error: unbound variable or constructor: zipOpt
+extra_tests.sml:64.15-64.21 Error: unbound variable or constructor: lookup
+extra_tests.sml:65.15-65.21 Error: unbound variable or constructor: lookup
+extra_tests.sml:66.15-66.21 Error: unbound variable or constructor: lookup
+extra_tests.sml:67.15-67.21 Error: unbound variable or constructor: lookup
+extra_tests.sml:68.15-68.21 Error: unbound variable or constructor: lookup
+extra_tests.sml:69.16-69.23 Error: unbound variable or constructor: splitup
+extra_tests.sml:70.16-70.23 Error: unbound variable or constructor: splitup
+extra_tests.sml:71.16-71.23 Error: unbound variable or constructor: splitup
+extra_tests.sml:72.16-72.23 Error: unbound variable or constructor: splitup
+extra_tests.sml:73.16-73.23 Error: unbound variable or constructor: splitup
+extra_tests.sml:74.16-74.23 Error: unbound variable or constructor: splitup
+extra_tests.sml:75.16-75.23 Error: unbound variable or constructor: splitAt
+extra_tests.sml:76.16-76.23 Error: unbound variable or constructor: splitAt
+extra_tests.sml:77.16-77.23 Error: unbound variable or constructor: splitAt
+extra_tests.sml:78.16-78.23 Error: unbound variable or constructor: splitAt
+extra_tests.sml:79.16-79.23 Error: unbound variable or constructor: splitAt
+extra_tests.sml:80.16-80.23 Error: unbound variable or constructor: splitAt
+extra_tests.sml:81.17-81.25 Error: unbound variable or constructor: isSorted
+extra_tests.sml:82.17-82.25 Error: unbound variable or constructor: isSorted
+extra_tests.sml:83.17-83.25 Error: unbound variable or constructor: isSorted
+extra_tests.sml:84.17-84.25 Error: unbound variable or constructor: isSorted
+extra_tests.sml:85.17-85.25 Error: unbound variable or constructor: isSorted
+extra_tests.sml:86.20-86.31 Error: unbound variable or constructor: isAnySorted
+extra_tests.sml:87.20-87.31 Error: unbound variable or constructor: isAnySorted
+extra_tests.sml:88.20-88.31 Error: unbound variable or constructor: isAnySorted
+extra_tests.sml:89.20-89.31 Error: unbound variable or constructor: isAnySorted
+extra_tests.sml:90.20-90.31 Error: unbound variable or constructor: isAnySorted
+extra_tests.sml:91.20-91.31 Error: unbound variable or constructor: isAnySorted
+extra_tests.sml:92.20-92.31 Error: unbound variable or constructor: isAnySorted
+extra_tests.sml:93.20-93.31 Error: unbound variable or constructor: sortedMerge
+extra_tests.sml:94.20-94.31 Error: unbound variable or constructor: sortedMerge
+extra_tests.sml:95.20-95.31 Error: unbound variable or constructor: sortedMerge
+extra_tests.sml:96.20-96.31 Error: unbound variable or constructor: sortedMerge
+extra_tests.sml:97.20-97.31 Error: unbound variable or constructor: sortedMerge
+extra_tests.sml:98.20-98.31 Error: unbound variable or constructor: sortedMerge
+extra_tests.sml:99.20-99.31 Error: unbound variable or constructor: sortedMerge
+extra_tests.sml:100.14-100.19 Error: unbound variable or constructor: qsort
+extra_tests.sml:101.14-101.19 Error: unbound variable or constructor: qsort
+extra_tests.sml:102.14-102.19 Error: unbound variable or constructor: qsort
+extra_tests.sml:103.14-103.19 Error: unbound variable or constructor: qsort
+extra_tests.sml:104.14-104.19 Error: unbound variable or constructor: qsort
+extra_tests.sml:105.14-105.19 Error: unbound variable or constructor: qsort
+extra_tests.sml:106.14-106.19 Error: unbound variable or constructor: qsort
+extra_tests.sml:107.15-107.21 Error: unbound variable or constructor: divide
+extra_tests.sml:108.15-108.21 Error: unbound variable or constructor: divide
+extra_tests.sml:109.15-109.21 Error: unbound variable or constructor: divide
+extra_tests.sml:110.15-110.21 Error: unbound variable or constructor: divide
+extra_tests.sml:111.15-111.21 Error: unbound variable or constructor: divide
+extra_tests.sml:112.17-112.34 Error: unbound variable or constructor: not_so_quick_sort
+extra_tests.sml:113.17-113.34 Error: unbound variable or constructor: not_so_quick_sort
+
+uncaught exception Error
+  raised at: ../compiler/TopLevel/interact/evalloop.sml:66.19-66.27
+             ../compiler/TopLevel/interact/evalloop.sml:44.55
+             ../compiler/TopLevel/interact/evalloop.sml:292.17-292.20
+- use "extra_practice.sml";
+[opening extra_practice.sml]
+val alternate = fn : int list -> int
+val min_max = fn : int list -> (int * int) option
+val cumsum = fn : int list -> int list
+val greeting = fn : string option -> string
+val repeat = fn : int list * int list -> int list
+val addOpt = fn : int option * int option -> int option
+val addAllOpt = fn : int option list -> int option
+val any = fn : bool list -> bool
+val all = fn : bool list -> bool
+val zip = fn : int list * int list -> (int * int) list
+val zipRecycle = fn : int list * int list -> (int * int) list
+val zipOpt = fn : int list * int list -> (int * int) list option
+val lookup = fn : (string * int) list * string -> int option
+val splitup = fn : int list -> int list * int list
+val splitAt = fn : int list * int -> int list * int list
+val isSorted = fn : int list -> bool
+val isAnySorted = fn : int list -> bool
+val sortedMerge = fn : int list * int list -> int list
+val qsort = fn : int list -> int list
+val divide = fn : int list -> int list * int list
+val not_so_quick_sort = fn : int list -> int list
+val it = () : unit
+- use "extra_tests.sml";
+[opening extra_tests.sml]
+val alternate1 = ~2 : int
+val alternate2 = 3 : int
+val min_max_e = NONE : (int * int) option
+val min_max1 = SOME (1,5) : (int * int) option
+val min_max2 = SOME (1,5) : (int * int) option
+val min_max3 = SOME (1,5) : (int * int) option
+val min_max4 = SOME (1,1) : (int * int) option
+val min_max5 = SOME (5,5) : (int * int) option
+val cumsum1 = [0] : int list
+val cumsum2 = [3] : int list
+val cumsum3 = [1,5,25] : int list
+val greeting1 = "Hello there, you!" : string
+val greeting2 = "Hello there, you!" : string
+val greeting3 = "Hello there, Kike!" : string
+val repeat1 = [] : int list
+val repeat2 = [] : int list
+val repeat3 = [1,2,3] : int list
+val repeat4 = [] : int list
+val repeat5 = [1,1,1,2,3] : int list
+val repeat6 = [1,1,1,2,2,3] : int list
+val repeat7 = [1,1,1,3] : int list
+val repeat8 = [1,1,1,1,3,3,3] : int list
+val addOpt1 = NONE : int option
+val addOpt2 = NONE : int option
+val addOpt3 = NONE : int option
+val addOpt4 = SOME 8 : int option
+val addOpt5 = SOME 3 : int option
+val addOpt6 = SOME 0 : int option
+val addAllOpt1 = NONE : int option
+val addAllOpt2 = NONE : int option
+val addAllOpt3 = SOME 2 : int option
+val addAllOpt4 = SOME 10 : int option
+val any1 = false : bool
+val any2 = true : bool
+val any3 = true : bool
+val any4 = true : bool
+val any5 = true : bool
+val any6 = false : bool
+val all1 = true : bool
+val all2 = true : bool
+val all3 = false : bool
+val all4 = false : bool
+val all5 = false : bool
+val all6 = false : bool
+val zip1 = [] : (int * int) list
+val zip2 = [] : (int * int) list
+val zip3 = [] : (int * int) list
+val zip4 = [(1,4),(2,5),(3,6)] : (int * int) list
+val zip5 = [(1,4),(2,5)] : (int * int) list
+val zip6 = [(1,4),(2,5)] : (int * int) list
+val recycle1 = [] : (int * int) list
+val recycle2 = [] : (int * int) list
+val recycle3 = [] : (int * int) list
+val recycle4 = [(1,4),(2,5),(3,6)] : (int * int) list
+val recycle5 = [(1,4),(2,5),(3,4)] : (int * int) list
+val recycle6 = [(1,4),(2,5),(1,6)] : (int * int) list
+val recycle7 = [(1,1),(2,2),(3,3),(1,4),(2,5),(3,6),(1,7)] : (int * int) list
+val zipOpt1 = SOME [] : (int * int) list option
+val zipOpt2 = NONE : (int * int) list option
+val zipOpt3 = NONE : (int * int) list option
+val zipOpt4 = NONE : (int * int) list option
+val zipOpt5 = NONE : (int * int) list option
+val zipOpt6 = SOME [(1,4),(2,5),(3,6)] : (int * int) list option
+val lookup1 = NONE : int option
+val lookup2 = NONE : int option
+val lookup3 = SOME 1 : int option
+val lookup4 = SOME 2 : int option
+val lookup5 = SOME 3 : int option
+val splitup1 = ([],[]) : int list * int list
+val splitup2 = ([1,2,3],[]) : int list * int list
+val splitup3 = ([],[~1,~2,~3]) : int list * int list
+val splitup4 = ([1,2,3],[~4,~5,~6]) : int list * int list
+val splitup5 = ([1,2,3],[~4,~5,~6]) : int list * int list
+val splitup6 = ([1,3,2],[~5,~4,~6]) : int list * int list
+val splitAt1 = ([],[]) : int list * int list
+val splitAt2 = ([1,2,3],[]) : int list * int list
+val splitAt3 = ([],[~1,~2,~3]) : int list * int list
+val splitAt4 = ([1,2,3],[~4,~5,~6]) : int list * int list
+val splitAt5 = ([1,2,3],[~4,~5,~6]) : int list * int list
+val splitAt6 = ([1,3,2],[~5,~4,~6]) : int list * int list
+val isSorted1 = true : bool
+val isSorted2 = true : bool
+val isSorted3 = true : bool
+val isSorted4 = true : bool
+val isSorted5 = false : bool
+val isAnySorted1 = true : bool
+val isAnySorted2 = true : bool
+val isAnySorted3 = true : bool
+val isAnySorted4 = true : bool
+val isAnySorted5 = true : bool
+val isAnySorted6 = true : bool
+val isAnySorted7 = false : bool
+val sortedMerge1 = [] : int list
+val sortedMerge2 = [1,2,3] : int list
+val sortedMerge3 = [1,2,3] : int list
+val sortedMerge4 = [1,2,3,4,5,6] : int list
+val sortedMerge5 = [1,2,4,5,6] : int list
+val sortedMerge6 = [1,2,3,4,6] : int list
+val sortedMerge7 = [1,4,5,7,8,9] : int list
+val qsort1 = [] : int list
+val qsort2 = [1] : int list
+val qsort3 = [1,2] : int list
+val qsort4 = [1,2,3] : int list
+val qsort5 = [1,2,3,4,5,6] : int list
+val qsort6 = [1,2,2,3,4,4] : int list
+val qsort7 = [1,2,2,3,4,4,5,5,6,6,7,8,...] : int list
+val divide1 = ([],[]) : int list * int list
+val divide2 = ([1],[]) : int list * int list
+val divide3 = ([1,3],[2,4]) : int list * int list
+val divide4 = ([1,3],[2]) : int list * int list
+val divide5 = ([1,3,5,7],[2,4,6]) : int list * int list
+val notQuick1 = [] : int list
+val notQuick2 = [1] : int list
+val test1 = true : bool
+val test2 = true : bool
+val test3 = true : bool
+val test4 = true : bool
+val test5 = true : bool
+val test6 = true : bool
+val test7 = true : bool
+val test8 = true : bool
+val test9 = true : bool
+val test10 = true : bool
+val test11 = true : bool
+val test12 = true : bool
+val test13 = true : bool
+val test14 = true : bool
+val test15 = true : bool
+val test16 = true : bool
+val test17 = true : bool
+val test18 = true : bool
+val test19 = true : bool
+val test20 = true : bool
+val test21 = true : bool
+val test22 = true : bool
+val test23 = true : bool
+val test24 = true : bool
+val test25 = true : bool
+val test26 = true : bool
+val test27 = true : bool
+val test28 = true : bool
+val test29 = true : bool
+val test30 = true : bool
+val test31 = true : bool
+val test32 = true : bool
+val test33 = true : bool
+val test34 = true : bool
+val test35 = true : bool
+val test36 = true : bool
+val test37 = true : bool
+val test38 = true : bool
+val test39 = true : bool
+val test40 = true : bool
+val test41 = true : bool
+val test42 = true : bool
+val test43 = true : bool
+val test44 = true : bool
+val test45 = true : bool
+val test46 = true : bool
+val test47 = true : bool
+val test48 = true : bool
+val test49 = true : bool
+val test50 = true : bool
+val test51 = true : bool
+val test52 = true : bool
+val test53 = true : bool
+val test54 = true : bool
+val test55 = true : bool
+val test56 = true : bool
+val test57 = true : bool
+val test58 = true : bool
+val test59 = true : bool
+val test60 = true : bool
+val test61 = true : bool
+val test62 = true : bool
+val test63 = true : bool
+val test64 = true : bool
+val test65 = true : bool
+val test66 = true : bool
+val test67 = true : bool
+val test68 = true : bool
+val test69 = true : bool
+val test70 = true : bool
+val test71 = true : bool
+val test72 = true : bool
+val test73 = true : bool
+val test74 = true : bool
+val test75 = true : bool
+val test76 = true : bool
+val test77 = true : bool
+val test78 = true : bool
+val test79 = true : bool
+val test80 = true : bool
+val test81 = true : bool
+val test82 = true : bool
+val test83 = true : bool
+val test84 = true : bool
+val test85 = true : bool
+val test86 = true : bool
+val test87 = true : bool
+val test88 = true : bool
+val test89 = true : bool
+val test90 = true : bool
+val test91 = true : bool
+val test92 = true : bool
+val test93 = true : bool
+val test94 = true : bool
+val test95 = true : bool
+val test96 = true : bool
+val test97 = true : bool
+val test98 = true : bool
+val test99 = true : bool
+val test100 = true : bool
+val test101 = true : bool
+val test102 = true : bool
+val test103 = true : bool
+val test104 = true : bool
+val test105 = true : bool
+val test106 = true : bool
+val test107 = true : bool
+val test108 = true : bool
+val test109 = true : bool
+val test110 = true : bool
+val test111 = true : bool
+val test112 = true : bool
+val test113 = true : bool
+val it = () : unit
+- 
+
+Process sml finished
+Standard ML of New Jersey v110.79 [built: Sat Oct 26 12:27:04 2019]
+- use "extra_practice.sml";
+[opening extra_practice.sml]
+val alternate = fn : int list -> int
+val min_max = fn : int list -> (int * int) option
+val cumsum = fn : int list -> int list
+val greeting = fn : string option -> string
+val repeat = fn : int list * int list -> int list
+val addOpt = fn : int option * int option -> int option
+val addAllOpt = fn : int option list -> int option
+val any = fn : bool list -> bool
+val all = fn : bool list -> bool
+val zip = fn : int list * int list -> (int * int) list
+val zipRecycle = fn : int list * int list -> (int * int) list
+val zipOpt = fn : int list * int list -> (int * int) list option
+val lookup = fn : (string * int) list * string -> int option
+val splitup = fn : int list -> int list * int list
+val splitAt = fn : int list * int -> int list * int list
+val isSorted = fn : int list -> bool
+val isAnySorted = fn : int list -> bool
+val sortedMerge = fn : int list * int list -> int list
+val qsort = fn : int list -> int list
+val divide = fn : int list -> int list * int list
+val not_so_quick_sort = fn : int list -> int list
+val it = () : unit
+- use "extra_tests.sml";
+[opening extra_tests.sml]
+val alternate1 = ~2 : int
+val alternate2 = 3 : int
+val min_max_e = NONE : (int * int) option
+val min_max1 = SOME (1,5) : (int * int) option
+val min_max2 = SOME (1,5) : (int * int) option
+val min_max3 = SOME (1,5) : (int * int) option
+val min_max4 = SOME (1,1) : (int * int) option
+val min_max5 = SOME (5,5) : (int * int) option
+val cumsum1 = [0] : int list
+val cumsum2 = [3] : int list
+val cumsum3 = [1,5,25] : int list
+val greeting1 = "Hello there, you!" : string
+val greeting2 = "Hello there, you!" : string
+val greeting3 = "Hello there, Kike!" : string
+val repeat1 = [] : int list
+val repeat2 = [] : int list
+val repeat3 = [1,2,3] : int list
+val repeat4 = [] : int list
+val repeat5 = [1,1,1,2,3] : int list
+val repeat6 = [1,1,1,2,2,3] : int list
+val repeat7 = [1,1,1,3] : int list
+val repeat8 = [1,1,1,1,3,3,3] : int list
+val addOpt1 = NONE : int option
+val addOpt2 = NONE : int option
+val addOpt3 = NONE : int option
+val addOpt4 = SOME 8 : int option
+val addOpt5 = SOME 3 : int option
+val addOpt6 = SOME 0 : int option
+val addAllOpt1 = NONE : int option
+val addAllOpt2 = NONE : int option
+val addAllOpt3 = SOME 2 : int option
+val addAllOpt4 = SOME 10 : int option
+val any1 = false : bool
+val any2 = true : bool
+val any3 = true : bool
+val any4 = true : bool
+val any5 = true : bool
+val any6 = false : bool
+val all1 = true : bool
+val all2 = true : bool
+val all3 = false : bool
+val all4 = false : bool
+val all5 = false : bool
+val all6 = false : bool
+val zip1 = [] : (int * int) list
+val zip2 = [] : (int * int) list
+val zip3 = [] : (int * int) list
+val zip4 = [(1,4),(2,5),(3,6)] : (int * int) list
+val zip5 = [(1,4),(2,5)] : (int * int) list
+val zip6 = [(1,4),(2,5)] : (int * int) list
+val recycle1 = [] : (int * int) list
+val recycle2 = [] : (int * int) list
+val recycle3 = [] : (int * int) list
+val recycle4 = [(1,4),(2,5),(3,6)] : (int * int) list
+val recycle5 = [(1,4),(2,5),(3,4)] : (int * int) list
+val recycle6 = [(1,4),(2,5),(1,6)] : (int * int) list
+val recycle7 = [(1,1),(2,2),(3,3),(1,4),(2,5),(3,6),(1,7)] : (int * int) list
+val zipOpt1 = SOME [] : (int * int) list option
+val zipOpt2 = NONE : (int * int) list option
+val zipOpt3 = NONE : (int * int) list option
+val zipOpt4 = NONE : (int * int) list option
+val zipOpt5 = NONE : (int * int) list option
+val zipOpt6 = SOME [(1,4),(2,5),(3,6)] : (int * int) list option
+val lookup1 = NONE : int option
+val lookup2 = NONE : int option
+val lookup3 = SOME 1 : int option
+val lookup4 = SOME 2 : int option
+val lookup5 = SOME 3 : int option
+val splitup1 = ([],[]) : int list * int list
+val splitup2 = ([1,2,3],[]) : int list * int list
+val splitup3 = ([],[~1,~2,~3]) : int list * int list
+val splitup4 = ([1,2,3],[~4,~5,~6]) : int list * int list
+val splitup5 = ([1,2,3],[~4,~5,~6]) : int list * int list
+val splitup6 = ([1,3,2],[~5,~4,~6]) : int list * int list
+val splitAt1 = ([],[]) : int list * int list
+val splitAt2 = ([1,2,3],[]) : int list * int list
+val splitAt3 = ([],[~1,~2,~3]) : int list * int list
+val splitAt4 = ([1,2,3],[~4,~5,~6]) : int list * int list
+val splitAt5 = ([1,2,3],[~4,~5,~6]) : int list * int list
+val splitAt6 = ([1,3,2],[~5,~4,~6]) : int list * int list
+val isSorted1 = true : bool
+val isSorted2 = true : bool
+val isSorted3 = true : bool
+val isSorted4 = true : bool
+val isSorted5 = false : bool
+val isAnySorted1 = true : bool
+val isAnySorted2 = true : bool
+val isAnySorted3 = true : bool
+val isAnySorted4 = true : bool
+val isAnySorted5 = true : bool
+val isAnySorted6 = true : bool
+val isAnySorted7 = false : bool
+val sortedMerge1 = [] : int list
+val sortedMerge2 = [1,2,3] : int list
+val sortedMerge3 = [1,2,3] : int list
+val sortedMerge4 = [1,2,3,4,5,6] : int list
+val sortedMerge5 = [1,2,4,5,6] : int list
+val sortedMerge6 = [1,2,3,4,6] : int list
+val sortedMerge7 = [1,4,5,7,8,9] : int list
+val qsort1 = [] : int list
+val qsort2 = [1] : int list
+val qsort3 = [1,2] : int list
+val qsort4 = [1,2,3] : int list
+val qsort5 = [1,2,3,4,5,6] : int list
+val qsort6 = [1,2,2,3,4,4] : int list
+val qsort7 = [1,2,2,3,4,4,5,5,6,6,7,8,...] : int list
+val divide1 = ([],[]) : int list * int list
+val divide2 = ([1],[]) : int list * int list
+val divide3 = ([1,3],[2,4]) : int list * int list
+val divide4 = ([1,3],[2]) : int list * int list
+val divide5 = ([1,3,5,7],[2,4,6]) : int list * int list
+val notQuick1 = [] : int list
+val notQuick2 = [1] : int list
+val notQuick3 = [1,2] : int list
+val test1 = true : bool
+val test2 = true : bool
+val test3 = true : bool
+val test4 = true : bool
+val test5 = true : bool
+val test6 = true : bool
+val test7 = true : bool
+val test8 = true : bool
+val test9 = true : bool
+val test10 = true : bool
+val test11 = true : bool
+val test12 = true : bool
+val test13 = true : bool
+val test14 = true : bool
+val test15 = true : bool
+val test16 = true : bool
+val test17 = true : bool
+val test18 = true : bool
+val test19 = true : bool
+val test20 = true : bool
+val test21 = true : bool
+val test22 = true : bool
+val test23 = true : bool
+val test24 = true : bool
+val test25 = true : bool
+val test26 = true : bool
+val test27 = true : bool
+val test28 = true : bool
+val test29 = true : bool
+val test30 = true : bool
+val test31 = true : bool
+val test32 = true : bool
+val test33 = true : bool
+val test34 = true : bool
+val test35 = true : bool
+val test36 = true : bool
+val test37 = true : bool
+val test38 = true : bool
+val test39 = true : bool
+val test40 = true : bool
+val test41 = true : bool
+val test42 = true : bool
+val test43 = true : bool
+val test44 = true : bool
+val test45 = true : bool
+val test46 = true : bool
+val test47 = true : bool
+val test48 = true : bool
+val test49 = true : bool
+val test50 = true : bool
+val test51 = true : bool
+val test52 = true : bool
+val test53 = true : bool
+val test54 = true : bool
+val test55 = true : bool
+val test56 = true : bool
+val test57 = true : bool
+val test58 = true : bool
+val test59 = true : bool
+val test60 = true : bool
+val test61 = true : bool
+val test62 = true : bool
+val test63 = true : bool
+val test64 = true : bool
+val test65 = true : bool
+val test66 = true : bool
+val test67 = true : bool
+val test68 = true : bool
+val test69 = true : bool
+val test70 = true : bool
+val test71 = true : bool
+val test72 = true : bool
+val test73 = true : bool
+val test74 = true : bool
+val test75 = true : bool
+val test76 = true : bool
+val test77 = true : bool
+val test78 = true : bool
+val test79 = true : bool
+val test80 = true : bool
+val test81 = true : bool
+val test82 = true : bool
+val test83 = true : bool
+val test84 = true : bool
+val test85 = true : bool
+val test86 = true : bool
+val test87 = true : bool
+val test88 = true : bool
+val test89 = true : bool
+val test90 = true : bool
+val test91 = true : bool
+val test92 = true : bool
+val test93 = true : bool
+val test94 = true : bool
+val test95 = true : bool
+val test96 = true : bool
+val test97 = true : bool
+val test98 = true : bool
+val test99 = true : bool
+val test100 = true : bool
+val test101 = true : bool
+val test102 = true : bool
+val test103 = true : bool
+val test104 = true : bool
+val test105 = true : bool
+val test106 = true : bool
+val test107 = true : bool
+val test108 = true : bool
+val test109 = true : bool
+val test110 = true : bool
+val test111 = true : bool
+val test112 = true : bool
+val test113 = true : bool
+val test114 = true : bool
+val it = () : unit
+- 
+
+Process sml finished
+Standard ML of New Jersey v110.79 [built: Sat Oct 26 12:27:04 2019]
+- use "extra_practice.sml";
+[opening extra_practice.sml]
+val alternate = fn : int list -> int
+val min_max = fn : int list -> (int * int) option
+val cumsum = fn : int list -> int list
+val greeting = fn : string option -> string
+val repeat = fn : int list * int list -> int list
+val addOpt = fn : int option * int option -> int option
+val addAllOpt = fn : int option list -> int option
+val any = fn : bool list -> bool
+val all = fn : bool list -> bool
+val zip = fn : int list * int list -> (int * int) list
+val zipRecycle = fn : int list * int list -> (int * int) list
+val zipOpt = fn : int list * int list -> (int * int) list option
+val lookup = fn : (string * int) list * string -> int option
+val splitup = fn : int list -> int list * int list
+val splitAt = fn : int list * int -> int list * int list
+val isSorted = fn : int list -> bool
+val isAnySorted = fn : int list -> bool
+val sortedMerge = fn : int list * int list -> int list
+val qsort = fn : int list -> int list
+val divide = fn : int list -> int list * int list
+val not_so_quick_sort = fn : int list -> int list
+val it = () : unit
+- use "extra_tests.sml";
+[opening extra_tests.sml]
+val alternate1 = ~2 : int
+val alternate2 = 3 : int
+val min_max_e = NONE : (int * int) option
+val min_max1 = SOME (1,5) : (int * int) option
+val min_max2 = SOME (1,5) : (int * int) option
+val min_max3 = SOME (1,5) : (int * int) option
+val min_max4 = SOME (1,1) : (int * int) option
+val min_max5 = SOME (5,5) : (int * int) option
+val cumsum1 = [0] : int list
+val cumsum2 = [3] : int list
+val cumsum3 = [1,5,25] : int list
+val greeting1 = "Hello there, you!" : string
+val greeting2 = "Hello there, you!" : string
+val greeting3 = "Hello there, Kike!" : string
+val repeat1 = [] : int list
+val repeat2 = [] : int list
+val repeat3 = [1,2,3] : int list
+val repeat4 = [] : int list
+val repeat5 = [1,1,1,2,3] : int list
+val repeat6 = [1,1,1,2,2,3] : int list
+val repeat7 = [1,1,1,3] : int list
+val repeat8 = [1,1,1,1,3,3,3] : int list
+val addOpt1 = NONE : int option
+val addOpt2 = NONE : int option
+val addOpt3 = NONE : int option
+val addOpt4 = SOME 8 : int option
+val addOpt5 = SOME 3 : int option
+val addOpt6 = SOME 0 : int option
+val addAllOpt1 = NONE : int option
+val addAllOpt2 = NONE : int option
+val addAllOpt3 = SOME 2 : int option
+val addAllOpt4 = SOME 10 : int option
+val any1 = false : bool
+val any2 = true : bool
+val any3 = true : bool
+val any4 = true : bool
+val any5 = true : bool
+val any6 = false : bool
+val all1 = true : bool
+val all2 = true : bool
+val all3 = false : bool
+val all4 = false : bool
+val all5 = false : bool
+val all6 = false : bool
+val zip1 = [] : (int * int) list
+val zip2 = [] : (int * int) list
+val zip3 = [] : (int * int) list
+val zip4 = [(1,4),(2,5),(3,6)] : (int * int) list
+val zip5 = [(1,4),(2,5)] : (int * int) list
+val zip6 = [(1,4),(2,5)] : (int * int) list
+val recycle1 = [] : (int * int) list
+val recycle2 = [] : (int * int) list
+val recycle3 = [] : (int * int) list
+val recycle4 = [(1,4),(2,5),(3,6)] : (int * int) list
+val recycle5 = [(1,4),(2,5),(3,4)] : (int * int) list
+val recycle6 = [(1,4),(2,5),(1,6)] : (int * int) list
+val recycle7 = [(1,1),(2,2),(3,3),(1,4),(2,5),(3,6),(1,7)] : (int * int) list
+val zipOpt1 = SOME [] : (int * int) list option
+val zipOpt2 = NONE : (int * int) list option
+val zipOpt3 = NONE : (int * int) list option
+val zipOpt4 = NONE : (int * int) list option
+val zipOpt5 = NONE : (int * int) list option
+val zipOpt6 = SOME [(1,4),(2,5),(3,6)] : (int * int) list option
+val lookup1 = NONE : int option
+val lookup2 = NONE : int option
+val lookup3 = SOME 1 : int option
+val lookup4 = SOME 2 : int option
+val lookup5 = SOME 3 : int option
+val splitup1 = ([],[]) : int list * int list
+val splitup2 = ([1,2,3],[]) : int list * int list
+val splitup3 = ([],[~1,~2,~3]) : int list * int list
+val splitup4 = ([1,2,3],[~4,~5,~6]) : int list * int list
+val splitup5 = ([1,2,3],[~4,~5,~6]) : int list * int list
+val splitup6 = ([1,3,2],[~5,~4,~6]) : int list * int list
+val splitAt1 = ([],[]) : int list * int list
+val splitAt2 = ([1,2,3],[]) : int list * int list
+val splitAt3 = ([],[~1,~2,~3]) : int list * int list
+val splitAt4 = ([1,2,3],[~4,~5,~6]) : int list * int list
+val splitAt5 = ([1,2,3],[~4,~5,~6]) : int list * int list
+val splitAt6 = ([1,3,2],[~5,~4,~6]) : int list * int list
+val isSorted1 = true : bool
+val isSorted2 = true : bool
+val isSorted3 = true : bool
+val isSorted4 = true : bool
+val isSorted5 = false : bool
+val isAnySorted1 = true : bool
+val isAnySorted2 = true : bool
+val isAnySorted3 = true : bool
+val isAnySorted4 = true : bool
+val isAnySorted5 = true : bool
+val isAnySorted6 = true : bool
+val isAnySorted7 = false : bool
+val sortedMerge1 = [] : int list
+val sortedMerge2 = [1,2,3] : int list
+val sortedMerge3 = [1,2,3] : int list
+val sortedMerge4 = [1,2,3,4,5,6] : int list
+val sortedMerge5 = [1,2,4,5,6] : int list
+val sortedMerge6 = [1,2,3,4,6] : int list
+val sortedMerge7 = [1,4,5,7,8,9] : int list
+val qsort1 = [] : int list
+val qsort2 = [1] : int list
+val qsort3 = [1,2] : int list
+val qsort4 = [1,2,3] : int list
+val qsort5 = [1,2,3,4,5,6] : int list
+val qsort6 = [1,2,2,3,4,4] : int list
+val qsort7 = [1,2,2,3,4,4,5,5,6,6,7,8,...] : int list
+val divide1 = ([],[]) : int list * int list
+val divide2 = ([1],[]) : int list * int list
+val divide3 = ([1,3],[2,4]) : int list * int list
+val divide4 = ([1,3],[2]) : int list * int list
+val divide5 = ([1,3,5,7],[2,4,6]) : int list * int list
+val notQuick1 = [] : int list
+val notQuick2 = [1] : int list
+val notQuick3 = [1,2] : int list
+val notQuick4 = [1,2,3] : int list
+val notQuick5 = [1,2,3,4,5,6] : int list
+val notQuick6 = [1,2,2,3,4,4] : int list
+val test1 = true : bool
+val test2 = true : bool
+val test3 = true : bool
+val test4 = true : bool
+val test5 = true : bool
+val test6 = true : bool
+val test7 = true : bool
+val test8 = true : bool
+val test9 = true : bool
+val test10 = true : bool
+val test11 = true : bool
+val test12 = true : bool
+val test13 = true : bool
+val test14 = true : bool
+val test15 = true : bool
+val test16 = true : bool
+val test17 = true : bool
+val test18 = true : bool
+val test19 = true : bool
+val test20 = true : bool
+val test21 = true : bool
+val test22 = true : bool
+val test23 = true : bool
+val test24 = true : bool
+val test25 = true : bool
+val test26 = true : bool
+val test27 = true : bool
+val test28 = true : bool
+val test29 = true : bool
+val test30 = true : bool
+val test31 = true : bool
+val test32 = true : bool
+val test33 = true : bool
+val test34 = true : bool
+val test35 = true : bool
+val test36 = true : bool
+val test37 = true : bool
+val test38 = true : bool
+val test39 = true : bool
+val test40 = true : bool
+val test41 = true : bool
+val test42 = true : bool
+val test43 = true : bool
+val test44 = true : bool
+val test45 = true : bool
+val test46 = true : bool
+val test47 = true : bool
+val test48 = true : bool
+val test49 = true : bool
+val test50 = true : bool
+val test51 = true : bool
+val test52 = true : bool
+val test53 = true : bool
+val test54 = true : bool
+val test55 = true : bool
+val test56 = true : bool
+val test57 = true : bool
+val test58 = true : bool
+val test59 = true : bool
+val test60 = true : bool
+val test61 = true : bool
+val test62 = true : bool
+val test63 = true : bool
+val test64 = true : bool
+val test65 = true : bool
+val test66 = true : bool
+val test67 = true : bool
+val test68 = true : bool
+val test69 = true : bool
+val test70 = true : bool
+val test71 = true : bool
+val test72 = true : bool
+val test73 = true : bool
+val test74 = true : bool
+val test75 = true : bool
+val test76 = true : bool
+val test77 = true : bool
+val test78 = true : bool
+val test79 = true : bool
+val test80 = true : bool
+val test81 = true : bool
+val test82 = true : bool
+val test83 = true : bool
+val test84 = true : bool
+val test85 = true : bool
+val test86 = true : bool
+val test87 = true : bool
+val test88 = true : bool
+val test89 = true : bool
+val test90 = true : bool
+val test91 = true : bool
+val test92 = true : bool
+val test93 = true : bool
+val test94 = true : bool
+val test95 = true : bool
+val test96 = true : bool
+val test97 = true : bool
+val test98 = true : bool
+val test99 = true : bool
+val test100 = true : bool
+val test101 = true : bool
+val test102 = true : bool
+val test103 = true : bool
+val test104 = true : bool
+val test105 = true : bool
+val test106 = true : bool
+val test107 = true : bool
+val test108 = true : bool
+val test109 = true : bool
+val test110 = true : bool
+val test111 = true : bool
+val test112 = true : bool
+val test113 = true : bool
+val test114 = true : bool
+val test115 = true : bool
+val test116 = true : bool
+val test117 = true : bool
+val it = () : unit
+- 
+
+Process sml finished
+Standard ML of New Jersey v110.79 [built: Sat Oct 26 12:27:04 2019]
+- use "extra_practice.sml";
+[opening extra_practice.sml]
+val alternate = fn : int list -> int
+val min_max = fn : int list -> (int * int) option
+val cumsum = fn : int list -> int list
+val greeting = fn : string option -> string
+val repeat = fn : int list * int list -> int list
+val addOpt = fn : int option * int option -> int option
+val addAllOpt = fn : int option list -> int option
+val any = fn : bool list -> bool
+val all = fn : bool list -> bool
+val zip = fn : int list * int list -> (int * int) list
+val zipRecycle = fn : int list * int list -> (int * int) list
+val zipOpt = fn : int list * int list -> (int * int) list option
+val lookup = fn : (string * int) list * string -> int option
+val splitup = fn : int list -> int list * int list
+val splitAt = fn : int list * int -> int list * int list
+val isSorted = fn : int list -> bool
+val isAnySorted = fn : int list -> bool
+val sortedMerge = fn : int list * int list -> int list
+val qsort = fn : int list -> int list
+val divide = fn : int list -> int list * int list
+val not_so_quick_sort = fn : int list -> int list
+val it = () : unit
+- use "extra_tests.sml";
+[opening extra_tests.sml]
+val alternate1 = ~2 : int
+val alternate2 = 3 : int
+val min_max_e = NONE : (int * int) option
+val min_max1 = SOME (1,5) : (int * int) option
+val min_max2 = SOME (1,5) : (int * int) option
+val min_max3 = SOME (1,5) : (int * int) option
+val min_max4 = SOME (1,1) : (int * int) option
+val min_max5 = SOME (5,5) : (int * int) option
+val cumsum1 = [0] : int list
+val cumsum2 = [3] : int list
+val cumsum3 = [1,5,25] : int list
+val greeting1 = "Hello there, you!" : string
+val greeting2 = "Hello there, you!" : string
+val greeting3 = "Hello there, Kike!" : string
+val repeat1 = [] : int list
+val repeat2 = [] : int list
+val repeat3 = [1,2,3] : int list
+val repeat4 = [] : int list
+val repeat5 = [1,1,1,2,3] : int list
+val repeat6 = [1,1,1,2,2,3] : int list
+val repeat7 = [1,1,1,3] : int list
+val repeat8 = [1,1,1,1,3,3,3] : int list
+val addOpt1 = NONE : int option
+val addOpt2 = NONE : int option
+val addOpt3 = NONE : int option
+val addOpt4 = SOME 8 : int option
+val addOpt5 = SOME 3 : int option
+val addOpt6 = SOME 0 : int option
+val addAllOpt1 = NONE : int option
+val addAllOpt2 = NONE : int option
+val addAllOpt3 = SOME 2 : int option
+val addAllOpt4 = SOME 10 : int option
+val any1 = false : bool
+val any2 = true : bool
+val any3 = true : bool
+val any4 = true : bool
+val any5 = true : bool
+val any6 = false : bool
+val all1 = true : bool
+val all2 = true : bool
+val all3 = false : bool
+val all4 = false : bool
+val all5 = false : bool
+val all6 = false : bool
+val zip1 = [] : (int * int) list
+val zip2 = [] : (int * int) list
+val zip3 = [] : (int * int) list
+val zip4 = [(1,4),(2,5),(3,6)] : (int * int) list
+val zip5 = [(1,4),(2,5)] : (int * int) list
+val zip6 = [(1,4),(2,5)] : (int * int) list
+val recycle1 = [] : (int * int) list
+val recycle2 = [] : (int * int) list
+val recycle3 = [] : (int * int) list
+val recycle4 = [(1,4),(2,5),(3,6)] : (int * int) list
+val recycle5 = [(1,4),(2,5),(3,4)] : (int * int) list
+val recycle6 = [(1,4),(2,5),(1,6)] : (int * int) list
+val recycle7 = [(1,1),(2,2),(3,3),(1,4),(2,5),(3,6),(1,7)] : (int * int) list
+val zipOpt1 = SOME [] : (int * int) list option
+val zipOpt2 = NONE : (int * int) list option
+val zipOpt3 = NONE : (int * int) list option
+val zipOpt4 = NONE : (int * int) list option
+val zipOpt5 = NONE : (int * int) list option
+val zipOpt6 = SOME [(1,4),(2,5),(3,6)] : (int * int) list option
+val lookup1 = NONE : int option
+val lookup2 = NONE : int option
+val lookup3 = SOME 1 : int option
+val lookup4 = SOME 2 : int option
+val lookup5 = SOME 3 : int option
+val splitup1 = ([],[]) : int list * int list
+val splitup2 = ([1,2,3],[]) : int list * int list
+val splitup3 = ([],[~1,~2,~3]) : int list * int list
+val splitup4 = ([1,2,3],[~4,~5,~6]) : int list * int list
+val splitup5 = ([1,2,3],[~4,~5,~6]) : int list * int list
+val splitup6 = ([1,3,2],[~5,~4,~6]) : int list * int list
+val splitAt1 = ([],[]) : int list * int list
+val splitAt2 = ([1,2,3],[]) : int list * int list
+val splitAt3 = ([],[~1,~2,~3]) : int list * int list
+val splitAt4 = ([1,2,3],[~4,~5,~6]) : int list * int list
+val splitAt5 = ([1,2,3],[~4,~5,~6]) : int list * int list
+val splitAt6 = ([1,3,2],[~5,~4,~6]) : int list * int list
+val isSorted1 = true : bool
+val isSorted2 = true : bool
+val isSorted3 = true : bool
+val isSorted4 = true : bool
+val isSorted5 = false : bool
+val isAnySorted1 = true : bool
+val isAnySorted2 = true : bool
+val isAnySorted3 = true : bool
+val isAnySorted4 = true : bool
+val isAnySorted5 = true : bool
+val isAnySorted6 = true : bool
+val isAnySorted7 = false : bool
+val sortedMerge1 = [] : int list
+val sortedMerge2 = [1,2,3] : int list
+val sortedMerge3 = [1,2,3] : int list
+val sortedMerge4 = [1,2,3,4,5,6] : int list
+val sortedMerge5 = [1,2,4,5,6] : int list
+val sortedMerge6 = [1,2,3,4,6] : int list
+val sortedMerge7 = [1,4,5,7,8,9] : int list
+val qsort1 = [] : int list
+val qsort2 = [1] : int list
+val qsort3 = [1,2] : int list
+val qsort4 = [1,2,3] : int list
+val qsort5 = [1,2,3,4,5,6] : int list
+val qsort6 = [1,2,2,3,4,4] : int list
+val qsort7 = [1,2,2,3,4,4,5,5,6,6,7,8,...] : int list
+val divide1 = ([],[]) : int list * int list
+val divide2 = ([1],[]) : int list * int list
+val divide3 = ([1,3],[2,4]) : int list * int list
+val divide4 = ([1,3],[2]) : int list * int list
+val divide5 = ([1,3,5,7],[2,4,6]) : int list * int list
+val notQuick1 = [] : int list
+val notQuick2 = [1] : int list
+val notQuick3 = [1,2] : int list
+val notQuick4 = [1,2,3] : int list
+val notQuick5 = [1,2,3,4,5,6] : int list
+val notQuick6 = [1,2,2,3,4,4] : int list
+val notQuick7 = [1,2,2,3,4,4,5,5,6,6,7,8,...] : int list
+val test1 = true : bool
+val test2 = true : bool
+val test3 = true : bool
+val test4 = true : bool
+val test5 = true : bool
+val test6 = true : bool
+val test7 = true : bool
+val test8 = true : bool
+val test9 = true : bool
+val test10 = true : bool
+val test11 = true : bool
+val test12 = true : bool
+val test13 = true : bool
+val test14 = true : bool
+val test15 = true : bool
+val test16 = true : bool
+val test17 = true : bool
+val test18 = true : bool
+val test19 = true : bool
+val test20 = true : bool
+val test21 = true : bool
+val test22 = true : bool
+val test23 = true : bool
+val test24 = true : bool
+val test25 = true : bool
+val test26 = true : bool
+val test27 = true : bool
+val test28 = true : bool
+val test29 = true : bool
+val test30 = true : bool
+val test31 = true : bool
+val test32 = true : bool
+val test33 = true : bool
+val test34 = true : bool
+val test35 = true : bool
+val test36 = true : bool
+val test37 = true : bool
+val test38 = true : bool
+val test39 = true : bool
+val test40 = true : bool
+val test41 = true : bool
+val test42 = true : bool
+val test43 = true : bool
+val test44 = true : bool
+val test45 = true : bool
+val test46 = true : bool
+val test47 = true : bool
+val test48 = true : bool
+val test49 = true : bool
+val test50 = true : bool
+val test51 = true : bool
+val test52 = true : bool
+val test53 = true : bool
+val test54 = true : bool
+val test55 = true : bool
+val test56 = true : bool
+val test57 = true : bool
+val test58 = true : bool
+val test59 = true : bool
+val test60 = true : bool
+val test61 = true : bool
+val test62 = true : bool
+val test63 = true : bool
+val test64 = true : bool
+val test65 = true : bool
+val test66 = true : bool
+val test67 = true : bool
+val test68 = true : bool
+val test69 = true : bool
+val test70 = true : bool
+val test71 = true : bool
+val test72 = true : bool
+val test73 = true : bool
+val test74 = true : bool
+val test75 = true : bool
+val test76 = true : bool
+val test77 = true : bool
+val test78 = true : bool
+val test79 = true : bool
+val test80 = true : bool
+val test81 = true : bool
+val test82 = true : bool
+val test83 = true : bool
+val test84 = true : bool
+val test85 = true : bool
+val test86 = true : bool
+val test87 = true : bool
+val test88 = true : bool
+val test89 = true : bool
+val test90 = true : bool
+val test91 = true : bool
+val test92 = true : bool
+val test93 = true : bool
+val test94 = true : bool
+val test95 = true : bool
+val test96 = true : bool
+val test97 = true : bool
+val test98 = true : bool
+val test99 = true : bool
+val test100 = true : bool
+val test101 = true : bool
+val test102 = true : bool
+val test103 = true : bool
+val test104 = true : bool
+val test105 = true : bool
+val test106 = true : bool
+val test107 = true : bool
+val test108 = true : bool
+val test109 = true : bool
+val test110 = true : bool
+val test111 = true : bool
+val test112 = true : bool
+val test113 = true : bool
+val test114 = true : bool
+val test115 = true : bool
+val test116 = true : bool
+val test117 = true : bool
+val test118 = true : bool
+val it = () : unit
+- 

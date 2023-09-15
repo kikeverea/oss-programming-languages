@@ -224,3 +224,20 @@ fun divide (nums : int list) =
 	 switch_divide(nums, ~1)
      end
 	 
+fun not_so_quick_sort (nums : int list) =
+    let
+	fun sort (lst : int list) =
+	    if null lst then [] else if null(tl lst) then lst
+	    else
+		let val sorted = sort(tl lst)
+		in if hd lst <= hd sorted
+		   then hd lst::sorted
+		   else hd sorted::(sort(hd lst::tl sorted))
+		end
+
+	val divided = divide(nums)
+	val sorted1 = sort(#1 divided)
+	val sorted2 = sort(#2 divided)
+    in
+	sort(nums)
+    end
