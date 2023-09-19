@@ -241,3 +241,17 @@ fun not_so_quick_sort (nums : int list) =
     in
 	sort(nums)
     end
+
+fun fullDivide (num_pair : int * int) =
+    let
+	val dividend = #2 num_pair
+	val divisor = #1 num_pair
+	val result = dividend div divisor
+    in
+	if dividend mod divisor = 0
+	then
+	    let val factor = fullDivide(divisor, result)
+	    in ((#1 factor) + 1, (#2 factor))
+	    end
+	else (0, dividend)
+    end

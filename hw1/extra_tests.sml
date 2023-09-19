@@ -116,7 +116,9 @@ val notQuick4 = not_so_quick_sort([2,1,3])
 val notQuick5 = not_so_quick_sort([5,1,4,3,6,2])
 val notQuick6 = not_so_quick_sort([1,2,3,4,2,4])
 val notQuick7 = not_so_quick_sort([5,1,2,3,6,4,2,5,6,9,7,4,8,9])
-
+val fullDivide1 = fullDivide(2, 40)
+val fullDivide2 = fullDivide(3, 10)
+				 
 val test1 = alternate1 = ~2
 val test2 = alternate2 = 3
 val test3 = min_max_e = NONE
@@ -253,3 +255,6 @@ val test115 = notQuick4 = [1,2,3]
 val test116 = notQuick5 = [1,2,3,4,5,6]
 val test117 = notQuick6 = [1,2,2,3,4,4]
 val test118 = notQuick7 = [1,2,2,3,4,4,5,5,6,6,7,8,9,9]
+
+val test119 = fullDivide1 = (3,5)
+val test120 = fullDivide2 = (0,10)
